@@ -18,7 +18,7 @@ module.exports = function (_config) {
   const IS_DEV = !IS_TESTFLIGHT || !IS_PRODUCTION
 
   const ASSOCIATED_DOMAINS = [
-    'applinks:blacksky.community',
+    'applinks:social.progressia.one',
     // When testing local services, enter an ngrok (et al) domain here. It must use a standard HTTP/HTTPS port.
     ...(IS_DEV || IS_TESTFLIGHT ? [] : []),
   ]
@@ -35,10 +35,10 @@ module.exports = function (_config) {
   return {
     expo: {
       version: VERSION,
-      name: 'blacksky.community',
-      slug: 'blacksky',
-      scheme: ['bluesky', 'blacksky'],
-      owner: 'blackskyalgorithms',
+      name: 'ProgressiaOne',
+      slug: 'progressiaone',
+      scheme: ['bluesky', 'progressiaone'],
+      owner: 'tigwyk',
       runtimeVersion: {
         policy: 'appVersion',
       },
@@ -47,7 +47,7 @@ module.exports = function (_config) {
       primaryColor: '#6060E9',
       ios: {
         supportsTablet: false,
-        bundleIdentifier: 'community.blacksky',
+        bundleIdentifier: 'app.progressia1',
         config: {
           usesNonExemptEncryption: false,
         },
@@ -109,7 +109,7 @@ module.exports = function (_config) {
         entitlements: {
           'com.apple.developer.kernel.increased-memory-limit': true,
           'com.apple.developer.kernel.extended-virtual-addressing': true,
-          'com.apple.security.application-groups': 'group.community.blacksky',
+          'com.apple.security.application-groups': 'group.app.progressia1',
         },
         privacyManifests: {
           NSPrivacyAccessedAPITypes: [
@@ -151,7 +151,7 @@ module.exports = function (_config) {
           backgroundColor: '#6060E9',
         },
         googleServicesFile: './google-services.json',
-        package: 'community.blacksky',
+        package: 'app.progressia1',
         intentFilters: [
           {
             action: 'VIEW',
@@ -159,7 +159,7 @@ module.exports = function (_config) {
             data: [
               {
                 scheme: 'https',
-                host: 'community.blacksky',
+                host: 'progressia1.app',
               },
               {
                 scheme: 'https',

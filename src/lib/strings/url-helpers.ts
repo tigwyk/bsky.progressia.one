@@ -59,7 +59,7 @@ export function toNiceDomain(url: string): string {
   try {
     const urlp = new URL(url)
     if (`https://${urlp.host}` === BSKY_SERVICE) {
-      return 'Blacksky Algorithms'
+      return 'ProgressiaOne'
     }
     return urlp.host ? urlp.host : url
   } catch (e) {

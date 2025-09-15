@@ -266,7 +266,7 @@ export function useReplaceForYouWithDiscoverFeedMutation() {
         await agent.addSavedFeeds([
           {
             type: 'feed',
-            value: PROD_DEFAULT_FEED('blacksky-trend'),
+            value: PROD_DEFAULT_FEED('aaaeu3bpchvke'),
             pinned: true,
           },
         ])

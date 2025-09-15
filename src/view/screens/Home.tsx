@@ -262,7 +262,7 @@ function HomeScreenReady({
           testID="customFeedPage"
           isPageFocused
           isPageAdjacent={false}
-          feed={`feedgen|${PROD_DEFAULT_FEED('blacksky-trend')}`}
+          feed={`feedgen|${PROD_DEFAULT_FEED('aaaeu3bpchvke')}`}
           renderEmptyState={renderCustomFeedEmptyState}
           feedInfo={pinnedFeedInfos[0]}
         />
@@ -325,7 +325,7 @@ function HomeScreenReady({
         testID="customFeedPage"
         isPageFocused
         isPageAdjacent={false}
-        feed={`feedgen|${PROD_DEFAULT_FEED('blacksky-trend')}`}
+        feed={`feedgen|${PROD_DEFAULT_FEED('aaaeu3bpchvke')}`}
         renderEmptyState={renderCustomFeedEmptyState}
         feedInfo={pinnedFeedInfos[0]}
       />

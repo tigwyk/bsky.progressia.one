@@ -149,9 +149,9 @@ function DialogInner({
         {fixedOption === BSKY_SERVICE && isFirstTimeUser && (
           <Admonition type="tip">
             <Trans>
-              Blacksky is an open network where you can choose your own
+              ProgressiaOne is an open network where you can choose your own
               provider. If you're new here, we recommend sticking with the
-              default Blacksky Algorithms option.
+              default ProgressiaOne option.
             </Trans>
           </Admonition>
         )}

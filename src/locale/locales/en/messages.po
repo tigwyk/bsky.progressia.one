@@ -1306,7 +1306,7 @@ msgid "Blacksky is an open network where you can choose your hosting provider. I
 msgstr ""
 
 #: src/view/com/auth/server-input/index.tsx:151
-msgid "Blacksky is an open network where you can choose your own provider. If you're new here, we recommend sticking with the default Blacksky Algorithms option."
+msgid "ProgressiaOne is an open network where you can choose your own provider. If you're new here, we recommend sticking with the default ProgressiaOne Algorithms option."
 msgstr ""
 
 #: src/components/ProgressGuide/List.tsx:53

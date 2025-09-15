@@ -360,7 +360,7 @@ export function useGetBlackskyFeedsQuery(options?: GetPopularFeedsOptions) {
     queryFn: async () => {
       const res = await agent.app.bsky.feed.getFeedGenerators({
         feeds: [
-          'at://did:plc:w4xbfzo7kqfes5zb7r6qv3rw/app.bsky.feed.generator/blacksky-trend',
+          'at://did:plc:tqlrqm7siq2ztpmvkyfqwzuy/app.bsky.feed.generator/aaaeu3bpchvke',
           'at://did:plc:w4xbfzo7kqfes5zb7r6qv3rw/app.bsky.feed.generator/blacksky',
           'at://did:plc:w4xbfzo7kqfes5zb7r6qv3rw/app.bsky.feed.generator/blacksky-edu',
           'at://did:plc:w4xbfzo7kqfes5zb7r6qv3rw/app.bsky.feed.generator/blacksky-op',
@@ -492,7 +492,7 @@ export type SavedFeedSourceInfo = FeedSourceInfo & {
 
 const PWI_DISCOVER_FEED_STUB: SavedFeedSourceInfo = {
   type: 'feed',
-  displayName: 'Blacksky: Trending',
+  displayName: 'Discover: Progressive',
   uri: DISCOVER_FEED_URI,
   feedDescriptor: `feedgen|${DISCOVER_FEED_URI}`,
   route: {
