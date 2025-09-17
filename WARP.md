@@ -181,3 +181,109 @@ When making changes to native code or dependencies:
 - ESLint with custom rules and import sorting
 - TypeScript strict mode enabled
 - Husky pre-commit hooks for quality checks
+
+### Linting & Pre-commit Setup
+
+The project uses a multi-package ESLint configuration:
+- **Main project**: Standard React Native ESLint config
+- **bskyembed subproject**: Uses `eslint-config-preact` for Preact compatibility
+
+#### Fixing ESLint Issues
+If you encounter ESLint config errors:
+```bash
+# Check main project linting
+yarn lint
+
+# For bskyembed subproject specifically
+cd bskyembed && yarn lint
+
+# Auto-fix common issues
+yarn lint --fix
+```
+
+#### Pre-commit Hook Troubleshooting
+Pre-commit hooks run automatically on `git commit`. If they fail:
+1. Fix linting errors shown in the output
+2. Common fixes: unused imports, variable shadowing, missing break statements
+3. Stage your fixes and commit again
+
+```bash
+# Manual pre-commit check
+yarn run lint-staged
+```
+
+## Branding & Design Assets
+
+### Logo Components
+ProgressiaOne uses custom P1 branding with three main logo components:
+
+- **`src/view/icons/Logo.tsx`** - Full logo with theme integration
+- **`src/view/icons/Logomark.tsx`** - Square P1 icon with accent dot
+- **`src/view/icons/Logotype.tsx`** - Text-only "P1" logo
+
+#### Logo Features:
+- **Magenta/purple gradient** matching ProgressiaOne brand colors
+- **Blue accent dot** for brand recognition
+- **Theme-aware styling** (adapts to light/dark modes)
+- **Consistent sizing** with original Bluesky component interfaces
+- **SVG-based** for crisp rendering at all scales
+
+#### Usage Examples:
+```tsx
+import {Logo, Logomark, Logotype} from '#/view/icons'
+
+// Full logo (recommended for headers)
+<Logo width={120} />
+
+// Square icon (for favicons, app icons)
+<Logomark width={32} />
+
+// Text logo (for minimal contexts)
+<Logotype width={80} />
+```
+
+### Brand Colors
+Defined in `src/alf/themes.ts`:
+```typescript
+export const BRAND = {
+  primaryLight: '#FF006E',    // Magenta
+  primaryDark: '#FF3D8B',     // Pink tint
+  secondary: '#8B5CF6',       // Purple
+  accent: '#01AAEE',          // Blue (used in logo dot)
+}
+```
+
+## Recent Updates & Improvements
+
+### September 2025 - P1 Branding & Development Environment
+
+#### ✅ Logo System Implementation
+- **New P1 logo components** replacing Bluesky branding throughout the app
+- **Custom SVG designs** with ProgressiaOne magenta/purple color scheme
+- **Theme integration** ensuring logos adapt to light/dark modes
+- **Consistent API** maintaining compatibility with existing usage patterns
+
+#### ✅ ESLint Configuration Fixes
+- **Resolved config conflicts** between main project and bskyembed subproject
+- **Fixed dependency issues** in bskyembed (downgraded incompatible Vite plugins)
+- **Import sorting standardization** across all logo and theme components
+- **Pre-commit hooks stabilized** - now consistently catch and prevent common issues
+
+#### ✅ Code Quality Improvements
+- **Eliminated unused imports** in theme system (removed BLUE_HUE, GREEN_HUE)
+- **Fixed variable shadowing** in multiple utility files
+- **Added missing break statements** in switch case logic
+- **Cleaned up regex patterns** removing unnecessary escape characters
+
+#### Development Environment Status
+- ✅ **Linting**: All packages lint successfully with proper config isolation
+- ✅ **Pre-commit hooks**: Working reliably to enforce code standards
+- ✅ **TypeScript**: Logo components compile without errors
+- ✅ **Theme system**: Brand colors properly integrated across design tokens
+
+### Known Issues Resolved
+- **ESLint "preact config not found"** - Fixed by proper dependency management in bskyembed
+- **Node version compatibility** - Resolved Vite plugin conflicts in subprojects
+- **Import sorting conflicts** - Standardized on inline type imports for consistency
+
+For the complete changelog of recent logo and infrastructure changes, see commit `ed6dbba0b`.
