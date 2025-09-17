@@ -1,6 +1,6 @@
 FROM golang:1.24.5-bullseye AS build-env
 
-WORKDIR /usr/src/blacksky.community
+WORKDIR /usr/src/progressia.one
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -106,8 +106,8 @@ COPY --from=build-env /bskyweb /usr/bin/bskyweb
 
 CMD ["/usr/bin/bskyweb"]
 
-LABEL org.opencontainers.image.source=https://github.com/blacksky-algorithms/blacksky.community
-LABEL org.opencontainers.image.description="blacksky.community Web App"
+LABEL org.opencontainers.image.source=https://github.com/tigwyk/bsky.progressia.one
+LABEL org.opencontainers.image.description="social.progressia.one Web App"
 LABEL org.opencontainers.image.licenses=MIT
 
 # NOOP
