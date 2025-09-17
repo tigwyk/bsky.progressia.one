@@ -8,7 +8,7 @@ const ALLOWED_HOSTS = [
   'bsky.social',
   'bsky.app',
   'blacksky.app',
-  'blacksky.community',
+  'social.progressia.one',
   'staging.bsky.app',
   'staging.bsky.dev',
   'js.hcaptcha.com',
@@ -43,12 +43,12 @@ export function CaptchaWebView({
   }, [])
 
   const redirectHost = useMemo(() => {
-      if (!state?.serviceUrl) return 'blacksky.community'
+    if (!state?.serviceUrl) return 'social.progressia.one'
 
     return state?.serviceUrl &&
       new URL(state?.serviceUrl).host === 'staging.bsky.dev'
-        ? 'app.staging.bsky.dev'
-      : 'blacksky.community'
+      ? 'app.staging.bsky.dev'
+      : 'social.progressia.one'
   }, [state?.serviceUrl])
 
   const wasSuccessful = useRef(false)

@@ -81,11 +81,11 @@ class HeadHandler {
           <meta name="twitter:card" content="summary_large_image" />
         `
       : view.avatar
-      ? html`<meta name="twitter:card" content="summary" />`
-      : ''
+        ? html`<meta name="twitter:card" content="summary" />`
+        : ''
     element.append(
       html`
-        <meta property="og:site_name" content="blacksky.community" />
+        <meta property="og:site_name" content="social.progressia.one" />
         <meta property="og:type" content="profile" />
         <meta property="profile:username" content="${view.handle}" />
         <meta property="og:url" content="${this.url}" />

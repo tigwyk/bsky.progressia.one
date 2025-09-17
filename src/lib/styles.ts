@@ -13,26 +13,26 @@ import {type Theme, type TypographyVariant} from './ThemeContext'
  * @deprecated use ALF colors instead
  */
 export const colors = {
-  white: '#F8FAF9',
-  black: '#070C0C',
+  white: '#FFFFFF',
+  black: '#0D0015',
 
-  gray1: '#F3F3F8',
-  gray2: '#E2E2E4',
-  gray3: '#B9B9C1',
-  gray4: '#8D8E96',
-  gray5: '#545664',
-  gray6: '#373942',
-  gray7: '#26272D',
-  gray8: '#141417',
+  gray1: '#F7F2FF',
+  gray2: '#F0E6FF',
+  gray3: '#B8A9C9',
+  gray4: '#9A8AAE',
+  gray5: '#6A5A7A',
+  gray6: '#524263',
+  gray7: '#3B2A4D',
+  gray8: '#251837',
 
-  brand0: '#EAEBFC',
-  brand1: '#B0B3F0',
-  brand2: '#8286E7',
-  brand3: '#8686FF',
-  brand4: '#6060E9',
-  brand5: '#4545A8',
-  brand6: '#38388D',
-  brand7: '#2B2B71',
+  brand0: '#FFE5F4',
+  brand1: '#FFB3DC',
+  brand2: '#FF56B8',
+  brand3: '#FF3D8B',
+  brand4: '#FF006E',
+  brand5: '#CC0056',
+  brand6: '#990041',
+  brand7: '#66002B',
 
   red1: '#ffe6eb',
   red2: '#fba2b2',
@@ -42,21 +42,21 @@ export const colors = {
   red6: '#690419',
   red7: '#4F0314',
 
-  green1: '#F1FECB',
-  green2: '#D2FC51',
-  green3: '#82C838',
-  green4: '#66942A',
-  green5: '#2E3B0E',
+  green1: '#E9D5FF',
+  green2: '#8B5CF6',
+  green3: '#6B46C1',
+  green4: '#553C9A',
+  green5: '#322659',
 
-  unreadNotifBg: '#ebf6ff',
-  brandBlue: '#0066FF',
-  like: '#ec4899',
+  unreadNotifBg: '#ffe5f4',
+  brandBlue: '#FF006E',
+  like: '#FF006E',
 }
 
 export const gradients = {
-  blueLight: {start: '#EAEBFC', end: '#6060E9'}, // buttons
-  blue: {start: '#6060E9', end: '#8686FF'}, // fab
-  blueDark: {start: '#464985', end: '#8686FF'}, // avis, banner
+  blueLight: {start: '#FFE5F4', end: '#FF006E'}, // buttons
+  blue: {start: '#FF006E', end: '#FF3D8B'}, // fab
+  blueDark: {start: '#4D1A35', end: '#FF3D8B'}, // avis, banner
 }
 
 /**

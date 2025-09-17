@@ -72,7 +72,7 @@ function SigninDialogInner({}: {control: Dialog.DialogOuterProps['control']}) {
               maxWidth: 300,
             },
           ]}>
-          <Trans>Sign in or create your account to join the cookout!</Trans>
+          <Trans>Sign in or create your account to join the convo!</Trans>
         </Text>
 
         <View style={[a.flex_col, a.gap_md]}>

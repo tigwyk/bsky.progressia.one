@@ -1,8 +1,10 @@
 import {logger} from '#/logger'
 
 export const BLUE_HUE = 240
+export const MAGENTA_HUE = 320
 export const RED_HUE = 0
 export const GREEN_HUE = 80
+export const PURPLE_HUE = 270
 
 /**
  * Smooth progression of lightness "stops" for generating HSL colors.

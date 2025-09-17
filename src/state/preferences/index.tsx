@@ -17,6 +17,7 @@ import {Provider as LanguagesProvider} from './languages'
 import {Provider as LargeAltBadgeProvider} from './large-alt-badge'
 import {Provider as NoAppLabelersProvider} from './no-app-labelers'
 import {Provider as NoDiscoverProvider} from './no-discover-fallback'
+import {Provider as ProgressiaoneVerificationProvider} from './progressiaone-verification'
 import {Provider as RepostCarouselProvider} from './repost-carousel-enabled'
 import {Provider as ShowLinkInHandleProvider} from './show-link-in-handle'
 import {Provider as SubtitlesProvider} from './subtitles'
@@ -50,33 +51,35 @@ export function Provider({children}: React.PropsWithChildren<{}>) {
                 <ConstellationProvider>
                   <ConstellationInstanceProvider>
                     <BlackskyVerificationProvider>
-                      <NoDiscoverProvider>
-                        <ShowLinkInHandleProvider>
-                          <LargeAltBadgeProvider>
-                            <ExternalEmbedsProvider>
-                              <HiddenPostsProvider>
-                                <InAppBrowserProvider>
-                                  <DisableHapticsProvider>
-                                    <AutoplayProvider>
-                                      <UsedStarterPacksProvider>
-                                        <SubtitlesProvider>
-                                          <TrendingSettingsProvider>
-                                            <RepostCarouselProvider>
-                                              <KawaiiProvider>
-                                                {children}
-                                              </KawaiiProvider>
-                                            </RepostCarouselProvider>
-                                          </TrendingSettingsProvider>
-                                        </SubtitlesProvider>
-                                      </UsedStarterPacksProvider>
-                                    </AutoplayProvider>
-                                  </DisableHapticsProvider>
-                                </InAppBrowserProvider>
-                              </HiddenPostsProvider>
-                            </ExternalEmbedsProvider>
-                          </LargeAltBadgeProvider>
-                        </ShowLinkInHandleProvider>
-                      </NoDiscoverProvider>
+                      <ProgressiaoneVerificationProvider>
+                        <NoDiscoverProvider>
+                          <ShowLinkInHandleProvider>
+                            <LargeAltBadgeProvider>
+                              <ExternalEmbedsProvider>
+                                <HiddenPostsProvider>
+                                  <InAppBrowserProvider>
+                                    <DisableHapticsProvider>
+                                      <AutoplayProvider>
+                                        <UsedStarterPacksProvider>
+                                          <SubtitlesProvider>
+                                            <TrendingSettingsProvider>
+                                              <RepostCarouselProvider>
+                                                <KawaiiProvider>
+                                                  {children}
+                                                </KawaiiProvider>
+                                              </RepostCarouselProvider>
+                                            </TrendingSettingsProvider>
+                                          </SubtitlesProvider>
+                                        </UsedStarterPacksProvider>
+                                      </AutoplayProvider>
+                                    </DisableHapticsProvider>
+                                  </InAppBrowserProvider>
+                                </HiddenPostsProvider>
+                              </ExternalEmbedsProvider>
+                            </LargeAltBadgeProvider>
+                          </ShowLinkInHandleProvider>
+                        </NoDiscoverProvider>
+                      </ProgressiaoneVerificationProvider>
                     </BlackskyVerificationProvider>
                   </ConstellationInstanceProvider>
                 </ConstellationProvider>

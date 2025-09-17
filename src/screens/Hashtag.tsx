@@ -53,7 +53,7 @@ export default function HashtagScreen({
   }, [author])
 
   const onShare = React.useCallback(() => {
-    const url = new URL('https://blacksky.community')
+    const url = new URL('https://social.progressia.one')
     url.pathname = `/hashtag/${decodeURIComponent(tag)}`
     if (author) {
       url.searchParams.set('author', author)

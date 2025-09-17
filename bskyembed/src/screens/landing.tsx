@@ -18,11 +18,11 @@ import * as bsky from '../types/bsky'
 import {niceDate} from '../util/nice-date'
 
 const DEFAULT_POST =
-  'https://blacksky.community/profile/did:plc:w4xbfzo7kqfes5zb7r6qv3rw/post/3lvbehkyyvc2f'
+  'https://social.progressia.one/profile/did:plc:w4xbfzo7kqfes5zb7r6qv3rw/post/3lvbehkyyvc2f'
 const DEFAULT_URI =
   'at://did:plc:w4xbfzo7kqfes5zb7r6qv3rw/app.bsky.feed.post/3lvbehkyyvc2f'
 
-export const EMBED_SERVICE = 'https://embed.blacksky.community'
+export const EMBED_SERVICE = 'https://embed.progressia.one'
 export const EMBED_SCRIPT = `${EMBED_SERVICE}/static/embed.js`
 
 const root = document.getElementById('app')
@@ -293,7 +293,7 @@ function Snippet({
 }
 
 function toShareUrl(path: string) {
-  return `https://blacksky.community${path}?ref_src=embed`
+  return `https://social.progressia.one${path}?ref_src=embed`
 }
 
 /**

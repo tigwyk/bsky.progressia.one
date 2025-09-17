@@ -38,8 +38,8 @@ export const TermsOfServiceScreen = (_props: Props) => {
             <Trans>The Terms of Service have been moved to</Trans>{' '}
             <TextLink
               style={pal.link}
-              href="https://www.blackskyweb.xyz/about/support/tos"
-              text="blacksky.community/about/tos"
+              href="https://www.progressia.one/about/support/tos"
+              text="www.progressia.one/about/tos"
             />
           </Text>
         </View>

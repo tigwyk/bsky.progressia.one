@@ -43,7 +43,7 @@ export default function TopicScreen({
   }, [topic])
 
   const onShare = React.useCallback(() => {
-    const url = new URL('https://blacksky.community')
+    const url = new URL('https://social.progressia.one')
     url.pathname = `/topic/${topic}`
     shareUrl(url.toString())
   }, [topic])

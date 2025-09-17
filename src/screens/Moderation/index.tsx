@@ -378,10 +378,10 @@ export function ModerationScreenInner({
                         to=""
                         onPress={evt => {
                           evt.preventDefault()
-                          Linking.openURL('https://blacksky.community/')
+                          Linking.openURL('https://social.progressia.one/')
                           return false
                         }}>
-                        blacksky.community
+                        social.progressia.one
                       </InlineLinkText>
                       .
                     </Trans>

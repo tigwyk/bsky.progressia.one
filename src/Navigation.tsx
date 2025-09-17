@@ -788,9 +788,9 @@ const LINKING = {
   // note: `bluesky://` is what is used in app.config.js
   prefixes: [
     'bsky://',
-    'blacksky://',
+    'progressiaone://',
     'https://bsky.app',
-    'https://blacksky.community',
+    'https://social.progressia.one',
   ],
 
   getPathFromState(state: State) {
@@ -1081,7 +1081,7 @@ function logModuleInitTime() {
 
   if (isWeb) {
     const referrerInfo = Referrer.getReferrerInfo()
-    if (referrerInfo && referrerInfo.hostname !== 'blacksky.community') {
+    if (referrerInfo && referrerInfo.hostname !== 'social.progressia.one') {
       logEvent('deepLink:referrerReceived', {
         to: window.location.href,
         referrer: referrerInfo?.referrer,

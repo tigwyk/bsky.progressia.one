@@ -12,7 +12,7 @@ export function createStarterPackLinkFromAndroidReferrer(
     const utmSource = url.searchParams.get('utm_source')
 
     if (!utmContent) return null
-    if (utmSource !== 'blacksky') return null
+    if (utmSource !== 'progressiaone') return null
 
     // This should be a string like `starterpack_haileyok.com_rkey`
     const contentParts = utmContent.split('_')
@@ -85,10 +85,10 @@ export function getStarterPackOgCard(
   rkey?: string,
 ) {
   if (typeof didOrStarterPack === 'string') {
-    return `https://ogcard.blacksky.community/start/${didOrStarterPack}/${rkey}`
+    return `https://ogcard.progressia.one/start/${didOrStarterPack}/${rkey}`
   } else {
-    const rkey = new AtUri(didOrStarterPack.uri).rkey
-    return `https://ogcard.blacksky.community/start/${didOrStarterPack.creator.did}/${rkey}`
+    const starterPackRkey = new AtUri(didOrStarterPack.uri).rkey
+    return `https://ogcard.progressia.one/start/${didOrStarterPack.creator.did}/${starterPackRkey}`
   }
 }
 

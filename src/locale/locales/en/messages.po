@@ -821,7 +821,7 @@ msgid "Adult Content"
 msgstr ""
 
 #: src/screens/Moderation/index.tsx:374
-msgid "Adult content can only be enabled via the Web at <0>blacksky.community</0>."
+msgid "Adult content can only be enabled via the Web at <0>social.progressia.one</0>."
 msgstr ""
 
 #: src/components/moderation/LabelPreference.tsx:247
@@ -4484,7 +4484,7 @@ msgstr ""
 
 #: src/components/StarterPack/QrCode.tsx:68
 #: src/view/shell/NavSignupCard.tsx:40
-msgid "Join the cookout"
+msgid "Join the convo"
 msgstr ""
 
 #: src/screens/Onboarding/index.tsx:37
@@ -7943,7 +7943,7 @@ msgid "Sign in or create an account"
 msgstr ""
 
 #: src/components/dialogs/Signin.tsx:75
-msgid "Sign in or create your account to join the cookout!"
+msgid "Sign in or create your account to join the convo!"
 msgstr ""
 
 #: src/components/AccountList.tsx:68

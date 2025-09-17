@@ -1,8 +1,8 @@
-import Svg, {Path, PathProps, SvgProps} from 'react-native-svg'
+import Svg, {Path, type PathProps, Rect, type SvgProps} from 'react-native-svg'
 
 import {usePalette} from '#/lib/hooks/usePalette'
 
-const ratio = 54 / 61
+const ratio = 1 // Square aspect ratio for P1 logo
 
 export function Logomark({
   fill,
@@ -10,19 +10,47 @@ export function Logomark({
 }: {fill?: PathProps['fill']} & SvgProps) {
   const pal = usePalette('default')
   // @ts-ignore it's fiiiiine
-  const size = parseInt(rest.width || 32)
+  const size = parseInt(rest.width || 32, 10)
 
   return (
     <Svg
       fill="none"
-      viewBox="0 0 61 54"
+      viewBox="0 0 256 256"
       {...rest}
       width={size}
       height={Number(size) * ratio}>
+      {/* Background circle */}
       <Path
-        fill={fill || pal.text.color}
-        d="M13.223 3.602C20.215 8.832 27.738 19.439 30.5 25.13c2.762-5.691 10.284-16.297 17.278-21.528C52.824-.172 61-3.093 61 6.2c0 1.856-1.068 15.59-1.694 17.82-2.178 7.752-10.112 9.73-17.17 8.532 12.337 2.092 15.475 9.021 8.697 15.95-12.872 13.159-18.5-3.302-19.943-7.52-.264-.773-.388-1.135-.39-.827-.002-.308-.126.054-.39.827-1.442 4.218-7.071 20.679-19.943 7.52-6.778-6.929-3.64-13.858 8.697-15.95-7.058 1.197-14.992-.78-17.17-8.532C1.068 21.79 0 8.056 0 6.2 0-3.093 8.176-.172 13.223 3.602Z"
+        d="M128 8 A120 120 0 1 1 128 248 A120 120 0 1 1 128 8 Z"
+        fill={pal.view.backgroundColor}
+        stroke={fill || pal.text.color}
+        strokeWidth="4"
       />
+
+      {/* Stylized P */}
+      <Path
+        d="M60 80 L60 200 L80 200 L80 150 L120 150 C140 150 156 134 156 114 C156 94 140 80 120 80 L60 80 Z M80 100 L120 100 C129 100 136 107 136 114 C136 121 129 130 120 130 L80 130 L80 100 Z"
+        fill={fill || pal.text.color}
+      />
+
+      {/* Stylized 1 */}
+      <Rect
+        x="180"
+        y="80"
+        width="20"
+        height="120"
+        fill={fill || pal.text.color}
+      />
+      <Rect
+        x="160"
+        y="80"
+        width="40"
+        height="20"
+        fill={fill || pal.text.color}
+      />
+
+      {/* Accent element */}
+      <Path d="M200 84 A6 6 0 1 1 200 96 A6 6 0 1 1 200 84 Z" fill="#01AAEE" />
     </Svg>
   )
 }

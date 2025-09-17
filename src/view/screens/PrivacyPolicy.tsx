@@ -39,8 +39,8 @@ export const PrivacyPolicyScreen = (_props: Props) => {
               The Privacy Policy has been moved to{' '}
               <TextLink
                 style={pal.link}
-                href="https://www.blackskyweb.xyz/about/support/privacy-policy"
-                text="blacksky.community/about/privacy"
+                href="https://www.progressia.one/about/support/privacy-policy"
+                text="www.progressia.one/about/privacy"
               />
             </Trans>
           </Text>

@@ -106,7 +106,7 @@ export function StarterPack(props: {
             padding: 60,
             fontSize: 40,
           }}>
-          JOIN THE COOKOUT
+          JOIN THE CONVO
         </div>
         <div style={{display: 'flex'}}>
           {imagesAcross.map((image, i) => {

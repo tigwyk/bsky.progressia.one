@@ -103,7 +103,7 @@ export function DesktopRightNav({routeName}: {routeName: string}) {
         {hasSession && (
           <>
             <InlineLinkText
-              to="https://assembly.blacksky.community/8bbfunvvau"
+              to="https://assembly.progressia.one/8bbfunvvau"
               label={_(msg`Discussion`)}>
               {_(msg`Discussion`)}
             </InlineLinkText>
@@ -111,13 +111,13 @@ export function DesktopRightNav({routeName}: {routeName: string}) {
           </>
         )}
         <InlineLinkText
-          to="https://www.blackskyweb.xyz/about/support/privacy-policy"
+          to="https://www.progressia.one/about/support/privacy-policy"
           label={_(msg`Privacy`)}>
           {_(msg`Privacy`)}
         </InlineLinkText>
         {' • '}
         <InlineLinkText
-          to="https://www.blackskyweb.xyz/about/support/tos"
+          to="https://www.progressia.one/about/support/tos"
           label={_(msg`Terms`)}>
           {_(msg`Terms`)}
         </InlineLinkText>

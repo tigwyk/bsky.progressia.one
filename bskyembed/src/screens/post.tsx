@@ -81,7 +81,7 @@ function PwiOptOut({thread}: {thread: AppBskyFeedDefs.ThreadViewPost}) {
         <Link
           href={href}
           className="max-w-80 rounded-lg bg-brand text-white text-center py-1 px-4 w-full mx-auto">
-          View on Blacksky
+          View on ProgressiaOne
         </Link>
       </div>
     </Container>
@@ -90,9 +90,9 @@ function PwiOptOut({thread}: {thread: AppBskyFeedDefs.ThreadViewPost}) {
 
 function ErrorMessage() {
   return (
-    <Container href="https://blacksky.community/">
+    <Container href="https://social.progressia.one/">
       <Link
-        href="https://blacksky.community/"
+        href="https://social.progressia.one/"
         className="transition-transform hover:scale-110 absolute top-4 right-4">
         <img src={logo} className="h-6" />
       </Link>

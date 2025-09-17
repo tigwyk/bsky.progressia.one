@@ -9,10 +9,10 @@ const IFRAME_HOST = isWeb
   ? // @ts-ignore only for web
     window.location.host === 'localhost:8100'
     ? 'http://localhost:8100'
-    : 'https://blacksky.community'
+    : 'https://social.progressia.one'
   : __DEV__ && !process.env.JEST_WORKER_ID
-  ? 'http://localhost:8100'
-  : 'https://blacksky.community'
+    ? 'http://localhost:8100'
+    : 'https://social.progressia.one'
 
 export const embedPlayerSources = [
   'youtube',

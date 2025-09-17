@@ -1,4 +1,4 @@
-Contact: mailto:rudy@blacksky.app
+Contact: mailto:tigwyk@progressia1.app
 Preferred-Languages: en
-Canonical: https://blacksky.community/.well-known/security.txt
+Canonical: https://social.progressia.one/.well-known/security.txt
 Acknowledgements: https://github.com/blacksky-algorithms/rsky

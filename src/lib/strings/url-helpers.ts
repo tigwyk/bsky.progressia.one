@@ -7,10 +7,11 @@ import {isInvalidHandle} from '#/lib/strings/handles'
 import {startUriToStarterPackUri} from '#/lib/strings/starter-pack'
 import {logger} from '#/logger'
 
-export const BSKY_APP_HOST = 'https://blacksky.community'
+export const BSKY_APP_HOST = 'https://social.progressia.one'
 const BSKY_TRUSTED_HOSTS = [
-  'blacksky\\.community',
-  'blacksky\\.app',
+  'social\\.progressia\\.one',
+  'progressia\\.one',
+  'progressia1\\.app',
   'blackskyweb\\.xyz',
   'rsky\\.dev',
   'tektite\\.cc',
@@ -86,7 +87,7 @@ export function toShortUrl(url: string): string {
 
 export function toShareUrl(url: string): string {
   if (!url.startsWith('https')) {
-    const urlp = new URL('https://blacksky.community')
+    const urlp = new URL('https://social.progressia.one')
     urlp.pathname = url
     url = urlp.toString()
   }
@@ -100,7 +101,7 @@ export function toBskyAppUrl(url: string): string {
 export function isBskyAppUrl(url: string): boolean {
   return (
     url.startsWith('https://bsky.app/') ||
-    url.startsWith('https://blacksky.community/')
+    url.startsWith('https://social.progressia.one/')
   )
 }
 
@@ -111,7 +112,7 @@ export function isRelativeUrl(url: string): boolean {
 export function isBskyRSSUrl(url: string): boolean {
   return (
     (url.startsWith('https://bsky.app/') ||
-      url.startsWith('https://blacksky.community/') ||
+      url.startsWith('https://social.progressia.one/') ||
       isRelativeUrl(url)) &&
     /\/rss\/?$/.test(url)
   )
@@ -317,7 +318,7 @@ export function isPossiblyAUrl(str: string): boolean {
   if (str.startsWith('https://')) {
     return true
   }
-  const [firstWord] = str.split(/[\s\/]/)
+  const [firstWord] = str.split(/[\s/]/)
   return isValidDomain(firstWord)
 }
 
@@ -349,11 +350,11 @@ export function createProxiedUrl(url: string): string {
     return url
   }
 
-  return `https://go.blacksky.community/redirect?u=${encodeURIComponent(url)}`
+  return `https://go.progressia.one/redirect?u=${encodeURIComponent(url)}`
 }
 
 export function isShortLink(url: string): boolean {
-  return url.startsWith('https://go.blacksky.community/')
+  return url.startsWith('https://go.progressia.one/')
 }
 
 export function shortLinkToHref(url: string): string {

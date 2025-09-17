@@ -65,7 +65,7 @@ export const QrCode = React.forwardRef<ViewShot, Props>(function QrCode(
               a.text_center,
               {color: 'white', fontSize: 18},
             ]}>
-            <Trans>Join the cookout</Trans>
+            <Trans>Join the convo</Trans>
           </Text>
           <View style={[a.rounded_sm, a.overflow_hidden]}>
             <QrCodeInner link={link} />

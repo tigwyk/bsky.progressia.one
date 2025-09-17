@@ -28,26 +28,29 @@ export function useIntentHandler() {
   React.useEffect(() => {
     const handleIncomingURL = (url: string) => {
       const referrerInfo = Referrer.getReferrerInfo()
-      if (referrerInfo && referrerInfo.hostname !== 'blacksky.community') {
-          logger.metric('deepLink:referrerReceived', {
+      if (referrerInfo && referrerInfo.hostname !== 'social.progressia.one') {
+        logger.metric('deepLink:referrerReceived', {
           to: url,
           referrer: referrerInfo?.referrer,
           hostname: referrerInfo?.hostname,
         })
       }
 
-      // We want to be able to support blacksky:// deeplinks. It's unnatural for someone to use a deeplink with three
-      // slashes, like blacksky:///intent/follow. However, supporting just two slashes causes us to have to take care
+      // We want to be able to support progressiaone:// deeplinks. It's unnatural for someone to use a deeplink with three
+      // slashes, like progressiaone:///intent/follow. However, supporting just two slashes causes us to have to take care
       // of two cases when parsing the url. If we ensure there is a third slash, we can always ensure the first
       // path parameter is in pathname rather than in hostname.
-      if (url.startsWith('blacksky://') && !url.startsWith('blacksky:///')) {
-        url = url.replace('blacksky://', 'blacksky:///')
+      if (
+        url.startsWith('progressiaone://') &&
+        !url.startsWith('progressiaone:///')
+      ) {
+        url = url.replace('progressiaone://', 'progressiaone:///')
       }
 
       const urlp = new URL(url)
       const [_, intent, intentType] = urlp.pathname.split('/')
 
-      // On native, our links look like blacksky://intent/SomeIntent, so we have to check the hostname for the
+      // On native, our links look like progressiaone://intent/SomeIntent, so we have to check the hostname for the
       // intent check. On web, we have to check the first part of the path since we have an actual hostname
       const isIntent = intent === 'intent'
       const params = urlp.searchParams
@@ -72,10 +75,11 @@ export function useIntentHandler() {
         case 'apply-ota': {
           const channel = params.get('channel')
           if (!channel) {
-              Alert.alert('Error', 'No channel provided to look for.')
+            Alert.alert('Error', 'No channel provided to look for.')
           } else {
-              tryApplyUpdate(channel)
+            tryApplyUpdate(channel)
           }
+          break
         }
         default: {
           return
@@ -131,7 +135,7 @@ export function useComposeIntent() {
         ?.split(',')
         .filter(part => {
           // For some security, we're going to filter out any image uri that is external. We don't want someone to
-          // be able to provide some link like "blacksky://intent/compose?imageUris=https://IHaveYourIpNow.com/image.jpeg
+          // be able to provide some link like "progressiaone://intent/compose?imageUris=https://IHaveYourIpNow.com/image.jpeg
           // and we load that image
           if (part.includes('https://') || part.includes('http://')) {
             return false

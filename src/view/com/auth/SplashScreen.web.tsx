@@ -179,7 +179,7 @@ function Footer() {
       ]}>
       <InlineLinkText
         label={_(msg`Read the patches and contribute`)}
-        to="https://github.com/blacksky-algorithms/blacksky.community">
+        to="https://github.com/tigwyk/bsky.progressia.one">
         <Trans>Github</Trans>
       </InlineLinkText>
 

@@ -44,9 +44,9 @@ export function makeStarterPackLink(
   rkey?: string,
 ) {
   if (typeof starterPackOrName === 'string') {
-    return `https://blacksky.community/start/${starterPackOrName}/${rkey}`
+    return `https://social.progressia.one/start/${starterPackOrName}/${rkey}`
   } else {
     const uriRkey = new AtUri(starterPackOrName.uri).rkey
-    return `https://blacksky.community/start/${starterPackOrName.creator.handle}/${uriRkey}`
+    return `https://social.progressia.one/start/${starterPackOrName.creator.handle}/${uriRkey}`
   }
 }

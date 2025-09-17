@@ -53,8 +53,8 @@ export function getTrustedConstellationVerifications(
     from_dids: Array.from(trusted),
   })
   return asyncGenDedupe(
-    asyncGenFilter(verificationLinks, ({did}) => trusted.has(did)),
-    ({did}) => did,
+    asyncGenFilter(verificationLinks, ({did: linkDid}) => trusted.has(linkDid)),
+    ({did: linkDid}) => linkDid,
   )
 }
 
@@ -78,11 +78,11 @@ async function getProgressiaoneVerificationLinkedRecords(
         // - clear the promise from the lru on failure
         // - skip links that cause errors
         async link => {
-          const {did, rkey} = link
+          const {did: linkDid, rkey} = link
 
-          let service = await resolvePdsServiceUrl(did)
+          let service = await resolvePdsServiceUrl(linkDid)
 
-          const request = `${service}/xrpc/com.atproto.repo.getRecord?repo=${did}&collection=app.bsky.graph.verification&rkey=${rkey}`
+          const request = `${service}/xrpc/com.atproto.repo.getRecord?repo=${linkDid}&collection=app.bsky.graph.verification&rkey=${rkey}`
           const record = await verificationCache.getOrTryInsertWith(
             request,
             async () => {

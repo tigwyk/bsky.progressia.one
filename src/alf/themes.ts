@@ -1,10 +1,10 @@
 import {atoms} from '#/alf/atoms'
 import {type Palette, type Theme} from '#/alf/types'
 import {
-  BLUE_HUE,
   defaultScale,
   dimScale,
-  GREEN_HUE,
+  MAGENTA_HUE,
+  PURPLE_HUE,
   RED_HUE,
 } from '#/alf/util/colorGeneration'
 
@@ -15,22 +15,22 @@ import {
  * ----------------------------------------------------------------*/
 export const BRAND = {
   /* Neutrals */
-  black: '#070C0C',
-  white: '#F8FAF9',
-  twilight: '#161E27',
-  gray300: '#C8CAC9',
-  gray400: '#9C9E9E',
-  gray600: '#6A6A6A',
+  black: '#0D0015',
+  white: '#FFFFFF',
+  twilight: '#1A0D26',
+  gray300: '#B8A9C9',
+  gray400: '#9A8AAE',
+  gray600: '#6A5A7A',
 
-  /* Primary / “Indigo‑violet” */
-  primaryLight: '#6060E9',
-  primaryLightTint: '#EAEBFC',
-  primaryDark: '#8686FF',
-  primaryDarkTint: '#464985',
+  /* Primary / "Magenta‑violet" */
+  primaryLight: '#FF006E',
+  primaryLightTint: '#FFE5F4',
+  primaryDark: '#FF3D8B',
+  primaryDarkTint: '#4D1A35',
 
-  /* Accent / Lime‑green (“success”) */
-  secondary: '#D2FC51',
-  secondaryTint: '#F1FECB',
+  /* Accent / Electric‑purple ("success") */
+  secondary: '#8B5CF6',
+  secondaryTint: '#E9D5FF',
 
   /* Negative / Brand red */
   negative: '#F40B42',
@@ -38,9 +38,9 @@ export const BRAND = {
 
 const themes = createThemes({
   hues: {
-    primary: BLUE_HUE,
+    primary: MAGENTA_HUE,
     negative: RED_HUE,
-    positive: GREEN_HUE,
+    positive: PURPLE_HUE,
   },
 })
 
@@ -93,55 +93,55 @@ export function createThemes({
    *  The keys remain identical, so nothing else breaks.
    * ----------------------------------------------------------------*/
   const color = {
-    like: '#EC4899',
+    like: '#FF006E',
     trueBlack: BRAND.black,
 
     /* ----------  Neutral Scale (white → black) ---------- */
     gray_0: BRAND.white,
-    gray_25: '#F2F4F4',
-    gray_50: '#E8EAEA',
-    gray_100: '#DFE1E1',
-    gray_200: BRAND.gray300, // #C8CAC9
-    gray_300: '#B6B8B8',
-    gray_400: BRAND.gray400, // #9C9E9E
-    gray_500: '#818383',
-    gray_600: BRAND.gray600, // #6A6A6A
-    gray_700: '#4F5050',
-    gray_800: '#353636',
-    gray_900: '#1F2020',
-    gray_950: '#121313',
-    gray_975: '#0B0C0C',
+    gray_25: '#F7F2FF',
+    gray_50: '#F0E6FF',
+    gray_100: '#E8D9FF',
+    gray_200: BRAND.gray300, // #B8A9C9
+    gray_300: '#A693C3',
+    gray_400: BRAND.gray400, // #9A8AAE
+    gray_500: '#7E6B92',
+    gray_600: BRAND.gray600, // #6A5A7A
+    gray_700: '#524263',
+    gray_800: '#3B2A4D',
+    gray_900: '#251837',
+    gray_950: '#1A0D26',
+    gray_975: '#100820',
     gray_1000: BRAND.black,
 
-    /* ----------  Primary (violet) – light palette anchor ---------- */
+    /* ----------  Primary (magenta) – light palette anchor ---------- */
     primary_25: BRAND.primaryLightTint,
-    primary_50: '#DCDDFA',
-    primary_100: '#C6C8F5',
-    primary_200: '#B0B3F0',
-    primary_300: '#989CED',
-    primary_400: '#8286E7',
+    primary_50: '#FFD1E8',
+    primary_100: '#FFB3DC',
+    primary_200: '#FF94D0',
+    primary_300: '#FF75C4',
+    primary_400: '#FF56B8',
     primary_500: BRAND.primaryLight,
-    primary_600: '#5252C3',
-    primary_700: '#4545A8',
-    primary_800: '#38388D',
-    primary_900: '#2B2B71',
-    primary_950: '#1E1E56',
-    primary_975: '#13133B',
+    primary_600: '#CC0056',
+    primary_700: '#990041',
+    primary_800: '#66002B',
+    primary_900: '#330016',
+    primary_950: '#1A000B',
+    primary_975: '#0D0005',
 
-    /* ----------  “Positive / Success” lime scale ---------- */
+    /* ----------  "Positive / Success" purple scale ---------- */
     green_25: BRAND.secondaryTint,
-    green_50: '#EAFDD1',
-    green_100: '#DAFCAB',
-    green_200: '#C8FC80',
-    green_300: '#BBFB66',
-    green_400: '#AEFA59',
+    green_50: '#F3E8FF',
+    green_100: '#E9D5FF',
+    green_200: '#D8BFD8',
+    green_300: '#C4A5C4',
+    green_400: '#B794F6',
     green_500: BRAND.secondary,
-    green_600: '#A0EC46',
-    green_700: '#82C838',
-    green_800: '#66942A',
-    green_900: '#4A601C',
-    green_950: '#2E3B0E',
-    green_975: '#181F07',
+    green_600: '#805AD5',
+    green_700: '#6B46C1',
+    green_800: '#553C9A',
+    green_900: '#44337A',
+    green_950: '#322659',
+    green_975: '#1A1338',
 
     /* ----------  Negative / Error (brand red) ---------- */
     red_25: '#FFE5EC',
@@ -302,19 +302,19 @@ export function createThemes({
     contrast_950: `hsl(${hues.primary}, 20%, ${dimScale[12]}%)`,
     contrast_975: `hsl(${hues.primary}, 20%, ${dimScale[13]}%)`,
 
-    primary_25: `hsl(240, 15%, ${dimScale[1]}%)`,
-    primary_50: `hsl(240, 18%, ${dimScale[2]}%)`,
-    primary_100: `hsl(240, 22%, ${dimScale[3]}%)`,
-    primary_200: `hsl(240, 25%, ${dimScale[4]}%)`,
-    primary_300: `hsl(240, 28%, ${dimScale[5]}%)`,
-    primary_400: `hsl(240, 32%, ${dimScale[6]}%)`,
-    primary_500: `hsl(240, 35%, ${dimScale[7]}%)`,
-    primary_600: `hsl(240, 38%, ${dimScale[8]}%)`,
-    primary_700: `hsl(240, 42%, ${dimScale[9]}%)`,
-    primary_800: `hsl(240, 45%, ${dimScale[10]}%)`,
-    primary_900: `hsl(240, 48%, ${dimScale[11]}%)`,
-    primary_950: `hsl(240, 50%, ${dimScale[12]}%)`,
-    primary_975: `hsl(240, 55%, ${dimScale[13]}%)`,
+    primary_25: `hsl(320, 15%, ${dimScale[1]}%)`,
+    primary_50: `hsl(320, 18%, ${dimScale[2]}%)`,
+    primary_100: `hsl(320, 22%, ${dimScale[3]}%)`,
+    primary_200: `hsl(320, 25%, ${dimScale[4]}%)`,
+    primary_300: `hsl(320, 28%, ${dimScale[5]}%)`,
+    primary_400: `hsl(320, 32%, ${dimScale[6]}%)`,
+    primary_500: `hsl(320, 35%, ${dimScale[7]}%)`,
+    primary_600: `hsl(320, 38%, ${dimScale[8]}%)`,
+    primary_700: `hsl(320, 42%, ${dimScale[9]}%)`,
+    primary_800: `hsl(320, 45%, ${dimScale[10]}%)`,
+    primary_900: `hsl(320, 48%, ${dimScale[11]}%)`,
+    primary_950: `hsl(320, 50%, ${dimScale[12]}%)`,
+    primary_975: `hsl(320, 55%, ${dimScale[13]}%)`,
 
     positive_25: `hsl(${hues.positive}, 50%, ${dimScale[1]}%)`,
     positive_50: `hsl(${hues.positive}, 60%, ${dimScale[2]}%)`,
@@ -596,17 +596,17 @@ export function createThemes({
       shadow_sm: {
         ...atoms.shadow_sm,
         shadowOpacity: 0.7,
-        shadowColor: `hsl(${hues.primary}, 28%, 6%)`,
+        shadowColor: `hsl(320, 28%, 6%)`,
       },
       shadow_md: {
         ...atoms.shadow_md,
         shadowOpacity: 0.7,
-        shadowColor: `hsl(${hues.primary}, 28%, 6%)`,
+        shadowColor: `hsl(320, 28%, 6%)`,
       },
       shadow_lg: {
         ...atoms.shadow_lg,
         shadowOpacity: 0.7,
-        shadowColor: `hsl(${hues.primary}, 28%, 6%)`,
+        shadowColor: `hsl(320, 28%, 6%)`,
       },
     },
   }
