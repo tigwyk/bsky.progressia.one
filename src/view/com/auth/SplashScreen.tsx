@@ -37,7 +37,7 @@ export const SplashScreen = ({
           </View>
 
           <Text style={[a.text_md, a.font_bold, t.atoms.text_contrast_medium]}>
-            <Trans>What's poppin'?</Trans>
+            <Trans>What's going on?</Trans>
           </Text>
         </View>
         <View
@@ -48,7 +48,7 @@ export const SplashScreen = ({
             onPress={onPressCreateAccount}
             label={_(msg`Create new account`)}
             accessibilityHint={_(
-              msg`Opens flow to create a new Blacksky account`,
+              msg`Opens flow to create a new ProgressiaOne account`,
             )}
             size="large"
             variant="solid"
@@ -62,7 +62,7 @@ export const SplashScreen = ({
             onPress={onPressSignin}
             label={_(msg`Sign in`)}
             accessibilityHint={_(
-              msg`Opens flow to sign in to your existing Blacksky account`,
+              msg`Opens flow to sign in to your existing ProgressiaOne account`,
             )}
             size="large"
             variant="solid"
@@ -86,7 +86,7 @@ export const SplashScreen = ({
                 style={[a.text_sm]}>
                 Tektite.cc{' '}
               </InlineLinkText>
-              to move your followers, posts, and media to Blacksky.
+              to move your followers, posts, and media to ProgressiaOne.
             </Trans>
           </Text>
         </View>

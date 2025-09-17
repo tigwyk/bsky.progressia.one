@@ -39,7 +39,7 @@ export function Screen() {
           <SettingsList.Item>
             <Admonition type="tip" style={[a.flex_1]}>
               <Trans>
-                Verifications on Blacksky work differently than on other
+                Verifications on ProgressiaOne work differently than on other
                 platforms.{' '}
                 <InlineLinkText
                   overridePresentation

@@ -8,7 +8,7 @@ import {Alert} from '#/view/com/util/Alert'
 const openPermissionAlert = (perm: string) => {
   Alert.alert(
     'Permission needed',
-    `Blacksky does not have permission to access your ${perm}.`,
+    `ProgressiaOne does not have permission to access your ${perm}.`,
     [
       {
         text: 'Cancel',

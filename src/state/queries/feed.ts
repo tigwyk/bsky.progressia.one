@@ -330,7 +330,7 @@ export function useGetPopularFeedsQuery(options?: GetPopularFeedsOptions) {
   return query
 }
 
-export function useGetBlackskyFeedsQuery(options?: GetPopularFeedsOptions) {
+export function useGetProgressiaOneFeedsQuery(options?: GetPopularFeedsOptions) {
   const {hasSession} = useSession()
   const agent = useAgent()
   const limit = options?.limit || 10
@@ -509,7 +509,7 @@ const PWI_DISCOVER_FEED_STUB: SavedFeedSourceInfo = {
   likeUri: '',
   // ---
   savedFeed: {
-    id: 'pwi-blacksky',
+    id: 'pwi-progressive',
     ...DISCOVER_SAVED_FEED,
   },
   contentMode: undefined,

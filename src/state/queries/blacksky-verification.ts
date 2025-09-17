@@ -8,11 +8,11 @@ import {useQuery} from '@tanstack/react-query'
 import {STALE} from '#/state/queries'
 import * as bsky from '#/types/bsky'
 import {type AnyProfileView} from '#/types/bsky/profile'
-import {
-  useBlackskyVerificationEnabled,
-  useBlackskyVerificationTrusted,
-} from '../preferences/blacksky-verification'
 import {useConstellationInstance} from '../preferences/constellation-instance'
+import {
+  useProgressiaoneVerificationEnabled,
+  useProgressiaoneVerificationTrusted,
+} from '../preferences/progressiaone-verification'
 import {
   asUri,
   asyncGenCollect,
@@ -26,7 +26,7 @@ import {LRU} from './direct-fetch-record'
 import {resolvePdsServiceUrl} from './resolve-identity'
 import {useCurrentAccountProfile} from './useCurrentAccountProfile'
 
-const RQKEY_ROOT = 'blacksky-verification'
+const RQKEY_ROOT = 'progressiaone-verification'
 export const RQKEY = (did: string, trusted: Set<string>) => [
   RQKEY_ROOT,
   did,
@@ -58,7 +58,7 @@ export function getTrustedConstellationVerifications(
   )
 }
 
-async function getBlackskyVerificationLinkedRecords(
+async function getProgressiaOneVerificationLinkedRecords(
   instance: string,
   did: string,
   trusted: Set<string>,
@@ -143,7 +143,7 @@ function createVerificationState(
   }
 }
 
-export function useBlackskyVerificationState({
+export function useProgressiaOneVerificationState({
   profile,
   enabled,
 }: {
@@ -152,7 +152,9 @@ export function useBlackskyVerificationState({
 }) {
   const instance = useConstellationInstance()
   const currentAccountProfile = useCurrentAccountProfile()
-  const trusted = useBlackskyVerificationTrusted(currentAccountProfile?.did)
+  const trusted = useProgressiaoneVerificationTrusted(
+    currentAccountProfile?.did,
+  )
 
   const linkedRecords = useQuery<LinkedRecord[] | undefined>({
     staleTime: STALE.HOURS.ONE,
@@ -160,7 +162,7 @@ export function useBlackskyVerificationState({
     async queryFn() {
       if (!profile) return undefined
 
-      return await getBlackskyVerificationLinkedRecords(
+      return await getProgressiaOneVerificationLinkedRecords(
         instance,
         profile.did,
         trusted,
@@ -180,11 +182,11 @@ export function useBlackskyVerificationState({
   return verificationState
 }
 
-export function useBlackskyVerificationProfileOverlay<V extends AnyProfileView>(
-  profile: V,
-): V {
-  const enabled = useBlackskyVerificationEnabled()
-  const verificationState = useBlackskyVerificationState({
+export function useProgressiaOneVerificationProfileOverlay<
+  V extends AnyProfileView,
+>(profile: V): V {
+  const enabled = useProgressiaoneVerificationEnabled()
+  const verificationState = useProgressiaOneVerificationState({
     profile,
     enabled,
   })
@@ -197,11 +199,11 @@ export function useBlackskyVerificationProfileOverlay<V extends AnyProfileView>(
     : profile
 }
 
-export function useMaybeBlackskyVerificationProfileOverlay<
+export function useMaybeProgressiaOneVerificationProfileOverlay<
   V extends AnyProfileView,
 >(profile: V | undefined): V | undefined {
-  const enabled = useBlackskyVerificationEnabled()
-  const verificationState = useBlackskyVerificationState({
+  const enabled = useProgressiaoneVerificationEnabled()
+  const verificationState = useProgressiaOneVerificationState({
     profile,
     enabled,
   })

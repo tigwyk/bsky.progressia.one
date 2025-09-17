@@ -205,7 +205,7 @@ function HomeScreenReady({
             testID="homeScreenFeedTabs"
             onPressSelected={onPressSelected}
             // @ts-ignore
-            feeds={[{displayName: 'Following'}, {displayName: 'Blacksky'}]}
+            feeds={[{displayName: 'Following'}, {displayName: 'ProgressiaOne'}]}
           />
         )
       }

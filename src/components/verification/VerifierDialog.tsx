@@ -6,7 +6,7 @@ import {useLingui} from '@lingui/react'
 import {urls} from '#/lib/constants'
 import {getUserDisplayName} from '#/lib/getUserDisplayName'
 import {logger} from '#/logger'
-import {useBlackskyVerificationEnabled} from '#/state/preferences/blacksky-verification'
+import {useProgressiaoneVerificationEnabled} from '#/state/preferences/progressiaone-verification'
 import {useSession} from '#/state/session'
 import {atoms as a, useBreakpoints, useTheme} from '#/alf'
 import {Button, ButtonText} from '#/components/Button'
@@ -60,7 +60,7 @@ function Inner({
     ? _(msg`You are a trusted verifier`)
     : _(msg`${userName} is a trusted verifier`)
 
-  const blackskyVerificationEnabled = useBlackskyVerificationEnabled()
+  const progressiaOneVerificationEnabled = useProgressiaoneVerificationEnabled()
 
   return (
     <Dialog.ScrollableInner
@@ -69,7 +69,7 @@ function Inner({
         gtMobile ? {width: 'auto', maxWidth: 400, minWidth: 200} : a.w_full,
       ]}>
       <View style={[a.gap_lg]}>
-        {!blackskyVerificationEnabled && (
+        {!progressiaOneVerificationEnabled && (
           <View
             style={[
               a.w_full,
@@ -87,7 +87,7 @@ function Inner({
                 },
               ]}
               alt={_(
-                msg`An illustration showing that Blacksky selects trusted verifiers, and trusted verifiers in turn verify individual user accounts.`,
+                msg`An illustration showing that ProgressiaOne selects trusted verifiers, and trusted verifiers in turn verify individual user accounts.`,
               )}
             />
           </View>
@@ -104,7 +104,7 @@ function Inner({
                 <VerifierCheck width={14} />
               </RNText>{' '}
               can verify others. These trusted verifiers are selected by{' '}
-              {blackskyVerificationEnabled ? 'you' : 'Bluesky'}.
+              {progressiaOneVerificationEnabled ? 'you' : 'ProgressiaOne'}.
             </Trans>
           </Text>
         </View>
@@ -121,7 +121,7 @@ function Inner({
             to={urls.website.blog.initialVerificationAnnouncement}
             label={_(
               msg({
-                message: `Learn more about verification on Blacksky`,
+                message: `Learn more about verification on ProgressiaOne`,
                 context: `english-only-resource`,
               }),
             )}

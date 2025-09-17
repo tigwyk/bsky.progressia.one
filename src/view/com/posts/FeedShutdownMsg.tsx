@@ -32,7 +32,7 @@ export function FeedShutdownMsg({feedUri}: {feedUri: string}) {
     f => f.value === feedUri && f.pinned,
   )
   const discoverFeedConfig = preferences?.savedFeeds?.find(
-    f => f.value === PROD_DEFAULT_FEED('blacksky-trend'),
+    f => f.value === PROD_DEFAULT_FEED('aaaeu3bpchvke'),
   )
   const hasFeedPinned = Boolean(feedConfig)
   const hasDiscoverPinned = Boolean(discoverFeedConfig?.pinned)
@@ -44,7 +44,7 @@ export function FeedShutdownMsg({feedUri}: {feedUri: string}) {
         Toast.show(_(msg`Removed from your feeds`))
       }
       if (hasDiscoverPinned) {
-        setSelectedFeed(`feedgen|${PROD_DEFAULT_FEED('blacksky-trend')}`)
+        setSelectedFeed(`feedgen|${PROD_DEFAULT_FEED('aaaeu3bpchvke')}`)
       }
     } catch (err: any) {
       Toast.show(
@@ -63,7 +63,7 @@ export function FeedShutdownMsg({feedUri}: {feedUri: string}) {
         forYouFeedConfig: feedConfig,
         discoverFeedConfig,
       })
-      setSelectedFeed(`feedgen|${PROD_DEFAULT_FEED('blacksky-trend')}`)
+      setSelectedFeed(`feedgen|${PROD_DEFAULT_FEED('aaaeu3bpchvke')}`)
       Toast.show(_(msg`The feed has been replaced with Discover.`))
     } catch (err: any) {
       Toast.show(
@@ -99,8 +99,8 @@ export function FeedShutdownMsg({feedUri}: {feedUri: string}) {
         <Trans>
           This feed is no longer online. We are showing{' '}
           <InlineLinkText
-            label={_(msg`The Blacksky Trending`)}
-            to="/profile/rudyfraser.com/feed/blacksky-trend"
+            label={_(msg`Discover Progressive`)}
+            to="/profile/tigwyk.tv/feed/aaaeu3bpchvke"
             style={[a.text_md]}>
             Discover
           </InlineLinkText>{' '}

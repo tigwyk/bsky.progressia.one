@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle for contrast -->
+  <circle cx="128" cy="128" r="120" fill="#1A0B2E" stroke="#FF006E" stroke-width="4"/>
+  
+  <!-- Stylized P -->
+  <path d="M60 80 L60 200 L80 200 L80 150 L120 150 C140 150 156 134 156 114 C156 94 140 80 120 80 L60 80 Z M80 100 L120 100 C129 100 136 107 136 114 C136 121 129 130 120 130 L80 130 L80 100 Z" fill="#FF006E"/>
+  
+  <!-- Stylized 1 with accent -->
+  <rect x="180" y="80" width="20" height="120" fill="#FF006E"/>
+  <rect x="160" y="80" width="40" height="20" fill="#FF006E"/>
+  <!-- Accent element -->
+  <circle cx="200" cy="90" r="6" fill="#01AAEE"/>
+</svg>

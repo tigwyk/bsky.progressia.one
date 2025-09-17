@@ -473,7 +473,7 @@ let SearchScreenInner = ({
             style={t.atoms.text_contrast_medium as StyleProp<ViewStyle>}
           />
           <Text style={[t.atoms.text_contrast_medium, a.text_md]}>
-            <Trans>Find posts, users, and feeds on Blacksky</Trans>
+            <Trans>Find posts, users, and feeds on ProgressiaOne</Trans>
           </Text>
         </View>
       </View>

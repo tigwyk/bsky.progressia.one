@@ -124,7 +124,7 @@ const schema = z.object({
   hasCheckedForStarterPack: z.boolean().optional(),
   subtitlesEnabled: z.boolean().optional(),
 
-  // blacksky
+  // progressiaone
   goLinksEnabled: z.boolean().optional(),
   constellationEnabled: z.boolean().optional(),
   directFetchRecords: z.boolean().optional(),
@@ -134,12 +134,6 @@ const schema = z.object({
   hideFollowNotifications: z.boolean().optional(),
   constellationInstance: z.string().optional(),
   showLinkInHandle: z.boolean().optional(),
-  blackskyVerification: z
-    .object({
-      enabled: z.boolean(),
-      trusted: z.array(z.string()),
-    })
-    .optional(),
   progressiaoneVerification: z
     .object({
       enabled: z.boolean(),
@@ -199,7 +193,7 @@ export const defaults: Schema = {
   trendingDisabled: false,
   trendingVideoDisabled: false,
 
-  // blacksky
+  // progressiaone
   goLinksEnabled: true,
   constellationEnabled: false,
   directFetchRecords: false,
@@ -209,21 +203,15 @@ export const defaults: Schema = {
   hideFollowNotifications: false,
   constellationInstance: 'https://constellation.microcosm.blue/',
   showLinkInHandle: false,
-  blackskyVerification: {
+  progressiaoneVerification: {
     enabled: false,
+    // Default trusted DIDs for ProgressiaOne verification
     // https://social.progressia.one/profile/did:plc:p2cp5gopk7mgjegy6wadk3ep/post/3lndyqyyr4k2k
     trusted: [
       'did:plc:z72i7hdynmk6r22z27h6tvur',
       'did:plc:eclio37ymobqex2ncko63h4r',
       'did:plc:inz4fkbbp7ms3ixufw6xuvdi',
       'did:plc:b2kutgxqlltwc6lhs724cfwr',
-    ],
-  },
-  progressiaoneVerification: {
-    enabled: false,
-    // Default trusted DIDs for ProgressiaOne verification
-    trusted: [
-      // Add your own trusted DIDs here
     ],
   },
 }

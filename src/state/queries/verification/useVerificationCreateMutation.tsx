@@ -3,19 +3,19 @@ import {useMutation, useQueryClient} from '@tanstack/react-query'
 
 import {until} from '#/lib/async/until'
 import {logger} from '#/logger'
-import {
-  useBlackskyVerificationEnabled,
-  useBlackskyVerificationTrusted,
-} from '#/state/preferences/blacksky-verification'
 import {useConstellationInstance} from '#/state/preferences/constellation-instance'
+import {
+  useProgressiaoneVerificationEnabled,
+  useProgressiaoneVerificationTrusted,
+} from '#/state/preferences/progressiaone-verification'
 import {useUpdateProfileVerificationCache} from '#/state/queries/verification/useUpdateProfileVerificationCache'
 import {useAgent, useSession} from '#/state/session'
 import type * as bsky from '#/types/bsky'
+import {asUri, asyncGenFind, type ConstellationLink} from '../constellation'
 import {
   getTrustedConstellationVerifications,
-  RQKEY as BLACKSKY_VERIFICATION_RQKEY,
-} from '../blacksky-verification'
-import {asUri, asyncGenFind, type ConstellationLink} from '../constellation'
+  RQKEY as PROGRESSIAONE_VERIFICATION_RQKEY,
+} from '../progressiaone-verification'
 
 export function useVerificationCreateMutation() {
   const agent = useAgent()
@@ -23,8 +23,8 @@ export function useVerificationCreateMutation() {
   const updateProfileVerificationCache = useUpdateProfileVerificationCache()
 
   const qc = useQueryClient()
-  const blackskyVerificationEnabled = useBlackskyVerificationEnabled()
-  const blackskyVerificationTrusted = useBlackskyVerificationTrusted(
+  const progressiaOneVerificationEnabled = useProgressiaoneVerificationEnabled()
+  const progressiaOneVerificationTrusted = useProgressiaoneVerificationTrusted(
     currentAccount?.did,
   )
   const constellationInstance = useConstellationInstance()
@@ -45,7 +45,7 @@ export function useVerificationCreateMutation() {
         },
       )
 
-      if (blackskyVerificationEnabled) {
+      if (progressiaOneVerificationEnabled) {
         await until(
           10,
           2e3,
@@ -57,7 +57,7 @@ export function useVerificationCreateMutation() {
               getTrustedConstellationVerifications(
                 constellationInstance,
                 profile.did,
-                blackskyVerificationTrusted,
+                progressiaOneVerificationTrusted,
               ),
               link => asUri(link) === uri,
             )
@@ -86,9 +86,9 @@ export function useVerificationCreateMutation() {
       logger.metric('verification:create', {}, {statsig: true})
       await updateProfileVerificationCache({profile})
       qc.invalidateQueries({
-        queryKey: BLACKSKY_VERIFICATION_RQKEY(
+        queryKey: PROGRESSIAONE_VERIFICATION_RQKEY(
           profile.did,
-          blackskyVerificationTrusted,
+          progressiaOneVerificationTrusted,
         ),
       })
     },

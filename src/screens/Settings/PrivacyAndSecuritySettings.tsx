@@ -115,21 +115,21 @@ export function PrivacyAndSecuritySettingsScreen({}: Props) {
                 <View style={[a.flex_1, a.gap_sm]}>
                   <Admonition.Text>
                     <Trans>
-                      Note: Blacksky is an open and public network. This setting
-                      only limits the visibility of your content on the Blacksky
-                      app and website, and other apps may not respect this
-                      setting. Your content may still be shown to logged-out
-                      users by other apps and websites.
+                      Note: ProgressiaOne is an open and public network. This
+                      setting only limits the visibility of your content on the
+                      ProgressiaOne app and website, and other apps may not
+                      respect this setting. Your content may still be shown to
+                      logged-out users by other apps and websites.
                     </Trans>
                   </Admonition.Text>
                   <Admonition.Text>
                     <InlineLinkText
                       label={_(
-                        msg`Learn more about what is public on Blacksky.`,
+                        msg`Learn more about what is public on ProgressiaOne.`,
                       )}
-                      to="https://www.blackskyweb.xyz/about/support/privacy-policy">
+                      to="https://www.progressia.one/about/support/privacy-policy">
                       <Trans>
-                        Learn more about what is public on Blacksky.
+                        Learn more about what is public on ProgressiaOne.
                       </Trans>
                     </InlineLinkText>
                   </Admonition.Text>

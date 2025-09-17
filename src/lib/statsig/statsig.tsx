@@ -160,12 +160,15 @@ export function useGatesCache(): Map<string, boolean> {
   return cache
 }
 
-function writeBlackskyGateCache(cache: Map<string, boolean>) {
-  device.set(['blackskyGateCache'], JSON.stringify(Object.fromEntries(cache)))
+function writeProgressiaOneGateCache(cache: Map<string, boolean>) {
+  device.set(
+    ['progressiaOneGateCache'],
+    JSON.stringify(Object.fromEntries(cache)),
+  )
 }
 
-export function resetBlackskyGateCache() {
-  writeBlackskyGateCache(new Map())
+export function resetProgressiaOneGateCache() {
+  writeProgressiaOneGateCache(new Map())
 }
 
 export function useGate(): (gateName: Gate, options?: GateOptions) => boolean {
@@ -188,7 +191,7 @@ export function useGate(): (gateName: Gate, options?: GateOptions) => boolean {
         }
       }
       cache.set(gateName, value)
-      writeBlackskyGateCache(cache)
+      writeProgressiaOneGateCache(cache)
       return value
     },
     [cache],
@@ -212,7 +215,7 @@ export function useDangerousSetGate(): (
   const dangerousSetGate = React.useCallback(
     (gateName: Gate, value: boolean) => {
       cache.set(gateName, value)
-      writeBlackskyGateCache(cache)
+      writeProgressiaOneGateCache(cache)
     },
     [cache],
   )
@@ -287,7 +290,7 @@ export function initialize() {
 
 export function Provider({children}: {children: React.ReactNode}) {
   const gateCache = new Map<string, boolean>(
-    Object.entries(JSON.parse(device.get(['blackskyGateCache']) ?? '{}')),
+    Object.entries(JSON.parse(device.get(['progressiaOneGateCache']) ?? '{}')),
   )
 
   return <GateCache.Provider value={gateCache}>{children}</GateCache.Provider>

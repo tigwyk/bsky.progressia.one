@@ -237,7 +237,7 @@ export function usePostFeedQuery(
           feedDescParts[0] === 'feedgen' &&
           BSKY_FEED_OWNER_DIDS.includes(feedOwnerDid)
         ) {
-          logger.error(`Blacksky feed may be offline: ${feedOwnerDid}`, {
+          logger.error(`ProgressiaOne feed may be offline: ${feedOwnerDid}`, {
             feedDesc,
             jsError: e,
           })

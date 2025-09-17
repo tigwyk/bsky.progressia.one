@@ -9847,7 +9847,7 @@ msgstr ""
 #: src/view/com/auth/SplashScreen.tsx:40
 #: src/view/com/auth/SplashScreen.web.tsx:94
 #: src/view/com/composer/Composer.tsx:812
-msgid "What's poppin'?"
+msgid "What's going on?"
 msgstr ""
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:146

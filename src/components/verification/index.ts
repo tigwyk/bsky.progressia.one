@@ -1,7 +1,7 @@
 import {useMemo} from 'react'
 
-import {useMaybeBlackskyVerificationProfileOverlay} from '#/state/queries/blacksky-verification'
 import {usePreferencesQuery} from '#/state/queries/preferences'
+import {useMaybeProgressiaoneVerificationProfileOverlay} from '#/state/queries/progressiaone-verification'
 import {useCurrentAccountProfile} from '#/state/queries/useCurrentAccountProfile'
 import {useSession} from '#/state/session'
 import type * as bsky from '#/types/bsky'
@@ -89,7 +89,7 @@ export function useSimpleVerificationState({
     () => preferences.data?.verificationPrefs || {hideBadges: false},
     [preferences.data?.verificationPrefs],
   )
-  const profile = useMaybeBlackskyVerificationProfileOverlay(baseProfile)
+  const profile = useMaybeProgressiaoneVerificationProfileOverlay(baseProfile)
 
   return useMemo(() => {
     if (!profile || !profile.verification) {

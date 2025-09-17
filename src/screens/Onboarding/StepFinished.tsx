@@ -340,7 +340,7 @@ function ValueProposition({
         msg`No more doomscrolling junk-filled algorithms. Find feeds that work for you, not against you.`,
       ),
       alt: _(
-        msg`A collection of popular feeds you can find on Bluesky, including News, Booksky, Game Dev, Blacksky, and Fountain Pens`,
+        msg`A collection of popular feeds you can find on Bluesky, including News, Booksky, Game Dev, ProgressiaOne, and Fountain Pens`,
       ),
     },
     {
@@ -532,7 +532,9 @@ function LegacyFinalStep({
         <Trans>You're ready to go!</Trans>
       </TitleText>
       <DescriptionText>
-        <Trans>We hope you have a wonderful time. Remember, Blacksky is:</Trans>
+        <Trans>
+          We hope you have a wonderful time. Remember, ProgressiaOne is:
+        </Trans>
       </DescriptionText>
 
       <View style={[a.pt_5xl, a.gap_3xl]}>

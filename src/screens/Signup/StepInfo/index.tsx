@@ -188,16 +188,16 @@ export function StepInfo({
                     )}
                   />
                 </TextField.Root>
-                {state.serviceUrl?.includes('blacksky.app') && (
+                {state.serviceUrl?.includes('progressia1.app') && (
                   <Text style={[a.pb_sm, a.leading_snug, a.text_sm]}>
                     <Trans>
                       Email{' '}
                       <InlineLinkText
-                        to="mailto:support@blacksky.app?subject=Invite Code Request"
-                        label={_(msg`support@blacksky.app`)}
+                        to="mailto:support@progressia1.app?subject=Invite Code Request"
+                        label={_(msg`support@progressia1.app`)}
                         style={[a.text_sm, a.leading_snug]}
                         numberOfLines={1}>
-                        {_(msg`support@blacksky.app`)}
+                        {_(msg`support@progressia1.app`)}
                       </InlineLinkText>{' '}
                       for an invite code
                     </Trans>

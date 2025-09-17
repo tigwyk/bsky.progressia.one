@@ -133,9 +133,9 @@ function DialogInner({
           label="Preferences"
           values={[fixedOption]}
           onChange={values => setFixedOption(values[0])}>
-          <ToggleButton.Button name={BSKY_SERVICE} label={_(msg`Blacksky`)}>
+          <ToggleButton.Button name={BSKY_SERVICE} label={_(msg`ProgressiaOne`)}>
             <ToggleButton.ButtonText>
-              {_(msg`Blacksky`)}
+              {_(msg`ProgressiaOne`)}
             </ToggleButton.ButtonText>
           </ToggleButton.Button>
           <ToggleButton.Button
@@ -212,7 +212,7 @@ function DialogInner({
               </Trans>
             ) : (
               <Trans>
-                Blacksky is an open network where you can choose your hosting
+                ProgressiaOne is an open network where you can choose your hosting
                 provider. If you're a developer, you can host your own server.
               </Trans>
             )}{' '}

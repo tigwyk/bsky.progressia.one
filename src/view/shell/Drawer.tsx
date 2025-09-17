@@ -712,12 +712,12 @@ function ExtraLinks() {
       <InlineLinkText
         style={[a.text_md]}
         label={_(msg`Terms of Service`)}
-        to="https://www.blackskyweb.xyz/about/support/tos">
+        to="https://www.progressia.one/about/support/tos">
         <Trans>Terms of Service</Trans>
       </InlineLinkText>
       <InlineLinkText
         style={[a.text_md]}
-        to="https://www.blackskyweb.xyz/about/support/privacy-policy"
+        to="https://www.progressia.one/about/support/privacy-policy"
         label={_(msg`Privacy Policy`)}>
         <Trans>Privacy Policy</Trans>
       </InlineLinkText>

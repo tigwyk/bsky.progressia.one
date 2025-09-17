@@ -149,7 +149,7 @@ function Inner({
           to={urls.website.blog.initialVerificationAnnouncement}
           label={_(
             msg({
-              message: `Learn more about verification on Blacksky`,
+              message: `Learn more about verification on ProgressiaOne`,
               context: `english-only-resource`,
             }),
           )}

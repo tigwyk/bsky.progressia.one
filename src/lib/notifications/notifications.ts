@@ -36,7 +36,7 @@ async function _registerPushToken({
         : PUBLIC_APPVIEW_DID,
       platform: Platform.OS,
       token: token.data,
-      appId: 'community.blacksky',
+      appId: 'one.progressia.social',
       ageRestricted: extra.ageRestricted ?? false,
     }
 

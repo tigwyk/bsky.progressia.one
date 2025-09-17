@@ -374,7 +374,7 @@ export function ModerationScreenInner({
                     <Trans>
                       Adult content can only be enabled via the Web at{' '}
                       <InlineLinkText
-                        label={_(msg`The Blacksky web application`)}
+                        label={_(msg`The ProgressiaOne web application`)}
                         to=""
                         onPress={evt => {
                           evt.preventDefault()

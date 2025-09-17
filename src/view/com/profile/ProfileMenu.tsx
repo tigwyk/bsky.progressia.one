@@ -16,10 +16,10 @@ import {isWeb} from '#/platform/detection'
 import {type Shadow} from '#/state/cache/types'
 import {useModalControls} from '#/state/modals'
 import {
-  useBlackskyVerificationEnabled,
-  useBlackskyVerificationTrusted,
-  useSetBlackskyVerificationTrust,
-} from '#/state/preferences/blacksky-verification'
+  useProgressiaoneVerificationEnabled,
+  useProgressiaoneVerificationTrusted,
+  useSetProgressiaoneVerificationTrust,
+} from '#/state/preferences/progressiaone-verification'
 import {
   RQKEY as profileQueryKey,
   useProfileBlockMutationQueue,
@@ -85,11 +85,11 @@ let ProfileMenu = ({
   const verification = useFullVerificationState({profile})
   const canGoLive = useCanGoLive(currentAccount?.did)
 
-  const blackskyVerificationEnabled = useBlackskyVerificationEnabled()
-  const blackskyVerificationTrusted = useBlackskyVerificationTrusted().has(
-    profile.did,
-  )
-  const setBlackskyVerificationTrust = useSetBlackskyVerificationTrust()
+  const progressiaOneVerificationEnabled = useProgressiaoneVerificationEnabled()
+  const progressiaOneVerificationTrusted =
+    useProgressiaoneVerificationTrusted().has(profile.did)
+  const setProgressiaOneVerificationTrust =
+    useSetProgressiaoneVerificationTrust()
 
   const [queueMute, queueUnmute] = useProfileMuteMutationQueue(profile)
   const [queueBlock, queueUnblock] = useProfileBlockMutationQueue(profile)
@@ -352,13 +352,13 @@ let ProfileMenu = ({
                   </Menu.Item>
                 )}
                 {!isSelf &&
-                  blackskyVerificationEnabled &&
-                  (blackskyVerificationTrusted ? (
+                  progressiaOneVerificationEnabled &&
+                  (progressiaOneVerificationTrusted ? (
                     <Menu.Item
                       testID="profileHeaderDropdownVerificationTrustRemoveButton"
                       label={_(msg`Remove trust`)}
                       onPress={() =>
-                        setBlackskyVerificationTrust.remove(profile.did)
+                        setProgressiaOneVerificationTrust.remove(profile.did)
                       }>
                       <Menu.ItemText>
                         <Trans>Remove trust</Trans>
@@ -370,7 +370,7 @@ let ProfileMenu = ({
                       testID="profileHeaderDropdownVerificationTrustAddButton"
                       label={_(msg`Trust verifier`)}
                       onPress={() =>
-                        setBlackskyVerificationTrust.add(profile.did)
+                        setProgressiaOneVerificationTrust.add(profile.did)
                       }>
                       <Menu.ItemText>
                         <Trans>Trust verifier</Trans>

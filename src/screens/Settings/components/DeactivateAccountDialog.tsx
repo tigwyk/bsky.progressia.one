@@ -74,8 +74,8 @@ function DeactivateAccountDialogInner({
       <Prompt.DescriptionText>
         <Trans>
           Your profile, posts, feeds, and lists will no longer be visible to
-          other Blacksky users. You can reactivate your account at any time by
-          logging in.
+          other ProgressiaOne users. You can reactivate your account at any time
+          by logging in.
         </Trans>
       </Prompt.DescriptionText>
 
