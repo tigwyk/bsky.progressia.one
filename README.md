@@ -2,9 +2,6 @@
 
 **social.progressia.one** is a community-driven fork of the official Bluesky Social client.  
 It’s the **primary client for the ProgressiaOne community**, maintained *by and for* our members.  
-
-> 🗳 **Have feedback?** Join the open conversation on Blacksky People’s Assembly: <https://assembly.blacksky.community/8bbfunvvau>
-
 ---
 
 ## Get the app
