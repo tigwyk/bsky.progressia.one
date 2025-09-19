@@ -1,9 +1,7 @@
-# blacksky.community
+# social.progressia.one
 
-**blacksky.community** is a community-driven fork of the official Bluesky Social client.  
-It’s the **primary client for the Blacksky community**, maintained *by and for* our members.  
-We track upstream releases closely but layer on features and policies that reflect Blacksky’s
-values of safety, autonomy, and collective ownership.
+**social.progressia.one** is a community-driven fork of the official Bluesky Social client.  
+It’s the **primary client for the ProgressiaOne community**, maintained *by and for* our members.  
 
 > 🗳 **Have feedback?** Join the open conversation on Blacksky People’s Assembly: <https://assembly.blacksky.community/8bbfunvvau>
 
@@ -13,34 +11,9 @@ values of safety, autonomy, and collective ownership.
 
 | Platform | Link | Status |
 |----------|------|--------|
-| **Web**  | <https://blacksky.community> | ✅ Live |
+| **Web**  | <https://social.progressia.one> | ✅ Live |
 | **iOS**  | *(App Store link forthcoming)* | 🛠 WIP |
 | **Android** | *(Play Store link forthcoming)* | 🛠 WIP |
-
----
-
-## Features — Today
-
-Blacksky ships everything you expect from the upstream Bluesky client **plus** community-specific defaults:
-
-| Area | Additions |
-|------|-----------|
-| **Safety & Moderation** | • **@blacksky.app** moderation service is the default **and cannot be disabled**, providing strong anti-harassment filtering out-of-the-box |
-| **Feed Control** | • **Blacksky: Trending** feed replaces Discover as the landing feed |
-| **On-boarding** | • New users sign up on the **Blacksky PDS** and receive `*.blacksky.app` handles |
-
-### WIP / Planned
-
-- Private, community-only posts, [similar to Hometown](https://github.com/hometown-fork/hometown/wiki/Local-only-posting)
-
----
-
-## Philosophy
-
-- **Familiar, but unmistakably Blacksky** – default behaviour mirrors the official client so new
-  users feel at home, while branding and safety defaults make it clear you’re on Blacksky.
-- **Community governance** – major feature decisions and policy changes are discussed on Polis and
-  implemented transparently.
 
 ---
 
@@ -87,7 +60,7 @@ If your idea isn’t a fit, feel free to **fork** – that’s the beauty of ope
 
 ## Forking Guidelines
 
-- Re-brand clearly so users don’t confuse your fork with blacksky.community.
+- Re-brand clearly so users don’t confuse your fork with the ProgressiaOne community.
 - Point analytics / error reporting to **your** endpoints.
 - Update support links (feedback, email, terms, etc.) to your own.
 
@@ -96,7 +69,7 @@ If your idea isn’t a fit, feel free to **fork** – that’s the beauty of ope
 ## Security Disclosures
 
 Found a vulnerability?  
-Email **rudy@blacksky.app** – we will respond
+Email **security@progressia1.app** – we will respond
 promptly.
 
 ---
@@ -104,10 +77,3 @@ promptly.
 ## License
 
 **MIT** – see [./LICENSE](./LICENSE).
-
----
-
-## P.S.
-
-Blacksky exists because of contributors like *you*.  
-Thank you for helping us build safer, community-owned social media!
