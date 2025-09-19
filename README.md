@@ -11,7 +11,7 @@ It’s the **primary client for the ProgressiaOne community**, maintained *by an
 
 | Platform | Link | Status |
 |----------|------|--------|
-| **Web**  | <https://social.progressia.one> | ✅ Live |
+| **Web**  | <https://social.progressia.one> | 🛠 WIP |
 | **iOS**  | *(App Store link forthcoming)* | 🛠 WIP |
 | **Android** | *(Play Store link forthcoming)* | 🛠 WIP |
 
