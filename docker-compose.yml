@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  bskyweb:
+    build: .
+    container_name: bskyweb-app
+    command: ["/usr/bin/bskyweb", "serve", "--appview-host=https://public.api.bsky.app"]
+    ports:
+      - "8100:8100"
+    environment:
+      - TZ=Etc/UTC
+      - GODEBUG=netdns=go
+    networks:
+      - bsky-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8100/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  nginx:
+    build: ./nginx
+    container_name: bskyweb-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - bskyweb
+    networks:
+      - bsky-network
+    restart: unless-stopped
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+
+networks:
+  bsky-network:
+    driver: bridge
