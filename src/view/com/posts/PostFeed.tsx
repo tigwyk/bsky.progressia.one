@@ -46,7 +46,7 @@ import {List, type ListRef} from '#/view/com/util/List'
 import {PostFeedLoadingPlaceholder} from '#/view/com/util/LoadingPlaceholder'
 import {LoadMoreRetryBtn} from '#/view/com/util/LoadMoreRetryBtn'
 import {type VideoFeedSourceContext} from '#/screens/VideoFeed/types'
-import {useBreakpoints, useLayoutBreakpoints} from '#/alf'
+import {useBreakpoints, useLayoutBreakpoints, useTheme} from '#/alf'
 import {CustomActivityIndicator} from '#/components/CustomActivityIndicator.tsx'
 import {ProgressGuide, SuggestedFollows} from '#/components/FeedInterstitials'
 import {
@@ -214,6 +214,7 @@ let PostFeed = ({
   const {gtMobile} = useBreakpoints()
   const {rightNavVisible} = useLayoutBreakpoints()
   const areVideoFeedsEnabled = isNative
+  const t = useTheme()
 
   const [hasPressedShowLessUris, setHasPressedShowLessUris] = useState(
     () => new Set<string>(),
@@ -816,7 +817,7 @@ let PostFeed = ({
   )
 
   return (
-    <View testID={testID} style={style}>
+    <View testID={testID} style={[{flex: 1}, t.atoms.bg, style]}>
       <List
         testID={testID ? `${testID}-flatlist` : undefined}
         ref={scrollElRef}

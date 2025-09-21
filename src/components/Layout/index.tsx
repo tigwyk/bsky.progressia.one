@@ -41,11 +41,17 @@ export const Screen = memo(function Screen({
   ...props
 }: ScreenProps) {
   const {top} = useSafeAreaInsets()
+  const t = useTheme()
   return (
     <>
       {isWeb && <WebCenterBorders />}
       <View
-        style={[a.util_screen_outer, {paddingTop: noInsetTop ? 0 : top}, style]}
+        style={[
+          a.util_screen_outer,
+          t.atoms.bg,
+          {paddingTop: noInsetTop ? 0 : top},
+          style,
+        ]}
         {...props}
       />
     </>
