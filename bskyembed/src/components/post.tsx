@@ -123,11 +123,12 @@ export function Post({thread}: Props) {
             {post.replyCount
               ? `Read ${prettyNumber(post.replyCount)} ${
                   post.replyCount > 1 ? 'replies' : 'reply'
-                } on Bluesky`
-              : `View on Bluesky`}
+                } on ProgressiaOne`
+              : `View on ProgressiaOne`}
           </p>
           <p className="cursor-pointer text-brand font-bold hover:underline min-[450px]:hidden">
-            <span className="hidden min-[380px]:inline">View on </span>Bluesky
+            <span className="hidden min-[380px]:inline">View on </span>
+            ProgressiaOne
           </p>
         </div>
       </div>
