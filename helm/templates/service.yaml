@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "bskyweb.fullname" . }}
+  labels:
+    {{- include "bskyweb.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort | default .Values.bskyweb.port }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "bskyweb.selectorLabels" . | nindent 4 }}

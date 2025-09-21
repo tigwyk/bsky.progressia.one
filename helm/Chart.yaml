@@ -1,0 +1,15 @@
+apiVersion: v2
+name: bskyweb
+description: A Helm chart for deploying bskyweb
+type: application
+version: 0.1.0
+appVersion: "latest"
+keywords:
+  - bskyweb
+  - social
+  - atproto
+home: https://github.com/tigwyk/bsky.progressia.one
+sources:
+  - https://github.com/tigwyk/bsky.progressia.one
+maintainers:
+  - name: tigwyk
