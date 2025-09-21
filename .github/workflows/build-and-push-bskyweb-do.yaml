@@ -13,7 +13,7 @@ env:
   IMAGE_NAME: "social.progressia.one"
 
 jobs:
-  bskyweb-container-ghcr:
+  bskyweb-container-do:
     if: github.repository == 'tigwyk/social.progressia.one'
     runs-on: ubuntu-latest
     permissions:
