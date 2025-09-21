@@ -251,12 +251,6 @@ let DrawerContent = ({}: React.PropsWithoutRef<{}>): React.ReactNode => {
     Linking.openURL(HELP_DESK_URL)
   }, [])
 
-  const onPressContribute = React.useCallback(() => {
-    Linking.openURL(
-      'https://opencollective.com/blacksky/contribute/backer-59760/checkout',
-    )
-  }, [])
-
   // rendering
   // =
 
@@ -324,11 +318,7 @@ let DrawerContent = ({}: React.PropsWithoutRef<{}>): React.ReactNode => {
         </View>
       </ScrollView>
 
-      <DrawerFooter
-        onPressDiscuss={onPressDiscuss}
-        onPressHelp={onPressHelp}
-        onPressContribute={onPressContribute}
-      />
+      <DrawerFooter onPressDiscuss={onPressDiscuss} onPressHelp={onPressHelp} />
     </View>
   )
 }
@@ -338,11 +328,9 @@ export {DrawerContent}
 let DrawerFooter = ({
   onPressDiscuss,
   onPressHelp,
-  onPressContribute,
 }: {
   onPressDiscuss: () => void
   onPressHelp: () => void
-  onPressContribute: () => void
 }): React.ReactNode => {
   const {_} = useLingui()
   const insets = useSafeAreaInsets()
@@ -383,19 +371,6 @@ let DrawerFooter = ({
         }}>
         <ButtonText>
           <Trans>Help</Trans>
-        </ButtonText>
-      </Button>
-      <Button
-        label={_(msg`Support Us`)}
-        size="small"
-        variant="outline"
-        color="secondary"
-        onPress={onPressContribute}
-        style={{
-          backgroundColor: 'transparent',
-        }}>
-        <ButtonText>
-          <Trans>Support Us</Trans>
         </ButtonText>
       </Button>
     </View>
