@@ -1,0 +1,43 @@
+apiVersion: v2
+name: bskyweb
+description: A Helm chart for deploying bskyweb
+type: application
+version: 0.1.0
+appVersion: "latest"
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bskyweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bskyweb
+  template:
+    metadata:
+      labels:
+        app: bskyweb
+    spec:
+      containers:
+        - name: bskyweb
+          image: registry.digitalocean.com/progressiaone/social.progressia.one:latest
+          ports:
+            - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: bskyweb
+spec:
+  selector:
+    app: bskyweb
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
