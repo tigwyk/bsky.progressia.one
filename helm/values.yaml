@@ -5,12 +5,13 @@
 replicaCount: 1
 
 image:
-  repository: registry.digitalocean.com/progressiaone/social.progressia.one
+  repository: registry.digitalocean.com/progressiaone
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
-imagePullSecrets: []
+imagePullSecrets:
+  - name: progressiaone
 nameOverride: ""
 fullnameOverride: ""
 
