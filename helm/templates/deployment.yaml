@@ -11,6 +11,7 @@ spec:
   selector:
     matchLabels:
       {{- include "bskyweb.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: bskyweb
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -19,6 +20,7 @@ spec:
       {{- end }}
       labels:
         {{- include "bskyweb.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: bskyweb
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:

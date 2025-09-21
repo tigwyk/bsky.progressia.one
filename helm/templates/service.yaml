@@ -4,6 +4,7 @@ metadata:
   name: {{ include "bskyweb.fullname" . }}
   labels:
     {{- include "bskyweb.labels" . | nindent 4 }}
+    app.kubernetes.io/component: bskyweb
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -13,3 +14,4 @@ spec:
       name: http
   selector:
     {{- include "bskyweb.selectorLabels" . | nindent 4 }}
+    app.kubernetes.io/component: bskyweb
