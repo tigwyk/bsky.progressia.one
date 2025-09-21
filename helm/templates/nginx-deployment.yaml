@@ -20,8 +20,10 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: "{{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag }}"
+          image: "{{ include "bskyweb.nginx.image" . }}"
           imagePullPolicy: {{ .Values.nginx.image.pullPolicy }}
+          securityContext:
+            {{- toYaml .Values.nginx.securityContext | nindent 12 }}
           ports:
             - name: http
               containerPort: 80

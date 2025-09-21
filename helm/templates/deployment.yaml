@@ -22,10 +22,7 @@ spec:
         {{- include "bskyweb.selectorLabels" . | nindent 8 }}
         app.kubernetes.io/component: bskyweb
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+      {{- include "bskyweb.imagePullSecrets" . | nindent 6 }}
       serviceAccountName: {{ include "bskyweb.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
@@ -33,7 +30,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ include "bskyweb.image" . }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.bskyweb.args }}
           args:
@@ -43,22 +40,38 @@ spec:
             - name: http
               containerPort: {{ .Values.bskyweb.port }}
               protocol: TCP
+          {{- if or .Values.bskyweb.env .Values.bskyweb.envFrom }}
           {{- if .Values.bskyweb.env }}
           env:
             {{- toYaml .Values.bskyweb.env | nindent 12 }}
           {{- end }}
+          {{- if .Values.bskyweb.envFrom }}
+          envFrom:
+            {{- toYaml .Values.bskyweb.envFrom | nindent 12 }}
+          {{- end }}
+          {{- end }}
+          {{- if .Values.bskyweb.healthCheck.enabled }}
           livenessProbe:
             httpGet:
-              path: /
+              path: {{ .Values.bskyweb.healthCheck.path }}
               port: http
-            initialDelaySeconds: 30
-            periodSeconds: 30
+            initialDelaySeconds: {{ .Values.bskyweb.healthCheck.initialDelaySeconds }}
+            periodSeconds: {{ .Values.bskyweb.healthCheck.periodSeconds }}
+            timeoutSeconds: {{ .Values.bskyweb.healthCheck.timeoutSeconds }}
+            successThreshold: {{ .Values.bskyweb.healthCheck.successThreshold }}
+            failureThreshold: {{ .Values.bskyweb.healthCheck.failureThreshold }}
+          {{- end }}
+          {{- if .Values.bskyweb.readinessProbe.enabled }}
           readinessProbe:
             httpGet:
-              path: /
+              path: {{ .Values.bskyweb.readinessProbe.path }}
               port: http
-            initialDelaySeconds: 5
-            periodSeconds: 10
+            initialDelaySeconds: {{ .Values.bskyweb.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.bskyweb.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.bskyweb.readinessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.bskyweb.readinessProbe.successThreshold }}
+            failureThreshold: {{ .Values.bskyweb.readinessProbe.failureThreshold }}
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

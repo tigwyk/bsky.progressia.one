@@ -1,51 +1,84 @@
-# Default values for bskyweb.
+# Default values for social-progressia-one.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+
+# Global settings
+global:
+  imageRegistry: ""
+  imagePullSecrets: []
+  storageClass: ""
 
 replicaCount: 1
 
 image:
-  repository: registry.digitalocean.com/progressiaone
+  registry: registry.digitalocean.com
+  repository: progressiaone/social.progressia.one
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
+  # Set to true if you want to debug the container startup
+  debug: false
 
+# Image pull secrets for private registries
+# Will use global.imagePullSecrets if not specified
 imagePullSecrets:
   - name: progressiaone
+
+# Override chart name and fullname
 nameOverride: ""
 fullnameOverride: ""
 
+# Service account configuration
 serviceAccount:
   # Specifies whether a service account should be created
   create: false
+  # Automount the service account token
+  automount: true
   # Annotations to add to the service account
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: ""
+  name: "default"
 
+# Pod annotations
 podAnnotations: {}
 
-podSecurityContext: {}
-  # fsGroup: 2000
+# Pod security context
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 65534  # nobody user
+  runAsGroup: 65534
+  fsGroup: 65534
+  seccompProfile:
+    type: RuntimeDefault
 
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+# Container security context
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 65534
+  runAsGroup: 65534
+  capabilities:
+    drop:
+    - ALL
+  seccompProfile:
+    type: RuntimeDefault
 
+# Service configuration
 service:
   type: ClusterIP
   port: 8100
   targetPort: 8100
+  annotations: {}
+  # sessionAffinity: None
+  # sessionAffinityConfig: {}
 
 # Nginx reverse proxy configuration
 nginx:
   enabled: true
   image:
+    registry: ""
     repository: nginx
     tag: "1.25-alpine"
     pullPolicy: IfNotPresent
@@ -54,11 +87,27 @@ nginx:
     type: LoadBalancer
     port: 80
     targetPort: 80
-  resources: {}
+    annotations: {}
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 50m
+      memory: 64Mi
   config:
     # Custom nginx configuration
     upstream_host: "bskyweb"
     upstream_port: 8100
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 101  # nginx user
+    runAsGroup: 101
+    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: true
+    capabilities:
+      drop:
+      - ALL
 
 ingress:
   enabled: false
@@ -76,17 +125,14 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+# Resource configuration for bskyweb container
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
 
 autoscaling:
   enabled: false
@@ -112,6 +158,35 @@ bskyweb:
   env: []
     # - name: EXAMPLE_VAR
     #   value: "example_value"
+    # - name: LOG_LEVEL
+    #   value: "info"
+  
+  # Configuration from ConfigMap or Secret
+  envFrom: []
+    # - configMapRef:
+    #     name: bskyweb-config
+    # - secretRef:
+    #     name: bskyweb-secrets
   
   # Port that bskyweb listens on
   port: 8100
+  
+  # Health check configuration
+  healthCheck:
+    enabled: true
+    path: "/"
+    initialDelaySeconds: 30
+    periodSeconds: 30
+    timeoutSeconds: 5
+    successThreshold: 1
+    failureThreshold: 3
+  
+  # Readiness probe configuration
+  readinessProbe:
+    enabled: true
+    path: "/"
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 5
+    successThreshold: 1
+    failureThreshold: 3
