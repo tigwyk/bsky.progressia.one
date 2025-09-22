@@ -67,63 +67,30 @@ securityContext:
 
 # Service configuration
 service:
-  type: ClusterIP
-  port: 8100
+  type: LoadBalancer
+  port: 80
   targetPort: 8100
   annotations: {}
   # sessionAffinity: None
   # sessionAffinityConfig: {}
 
-# Nginx reverse proxy configuration
-nginx:
-  enabled: true
-  image:
-    registry: ""
-    repository: nginx
-    tag: "1.25-alpine"
-    pullPolicy: IfNotPresent
-  replicaCount: 1
-  service:
-    type: LoadBalancer
-    port: 80
-    targetPort: 80
-    annotations: {}
-  resources:
-    limits:
-      cpu: 100m
-      memory: 128Mi
-    requests:
-      cpu: 50m
-      memory: 64Mi
-  config:
-    # Custom nginx configuration
-    upstream_host: "bskyweb"
-    upstream_port: 8100
-  securityContext:
-    runAsNonRoot: true
-    runAsUser: 101  # nginx user
-    runAsGroup: 101
-    allowPrivilegeEscalation: false
-    readOnlyRootFilesystem: true
-    capabilities:
-      drop:
-      - ALL
 
 ingress:
-  enabled: false
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
   hosts:
-    - host: chart-example.local
+    - host: social.progressia.one
       paths:
         - path: /
           pathType: Prefix
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls:
+    - secretName: social-progressia-one-tls
+      hosts:
+        - social.progressia.one
 
 # Resource configuration for bskyweb container
 resources:
@@ -151,6 +118,7 @@ affinity: {}
 bskyweb:
   # Command line arguments for bskyweb
   args:
+    - "/usr/bin/bskyweb"
     - "serve"
     - "--appview-host=https://public.api.bsky.app"
   

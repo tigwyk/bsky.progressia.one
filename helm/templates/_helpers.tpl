@@ -102,21 +102,3 @@ imagePullSecrets:
 {{- end -}}
 {{- end }}
 
-{{/*
-Return the proper nginx image name
-*/}}
-{{- define "bskyweb.nginx.image" -}}
-{{- $registryName := .Values.nginx.image.registry -}}
-{{- $repositoryName := .Values.nginx.image.repository -}}
-{{- $tag := .Values.nginx.image.tag | toString -}}
-{{- if .Values.global -}}
-{{- if .Values.global.imageRegistry -}}
-{{- $registryName = .Values.global.imageRegistry -}}
-{{- end -}}
-{{- end -}}
-{{- if $registryName -}}
-{{- printf "%s/%s:%s" $registryName $repositoryName $tag -}}
-{{- else -}}
-{{- printf "%s:%s" $repositoryName $tag -}}
-{{- end -}}
-{{- end }}
