@@ -31,14 +31,24 @@ jobs:
           username: ${{ secrets.DO_REGISTRY_USER }}
           password: ${{ secrets.DO_REGISTRY_SECRET }}
 
-      - name: Extract Docker metadata
+      - name: Extract metadata
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: |
             registry.digitalocean.com/progressiaone/embed.progressia.one
           tags: |
-            type=sha,enable=true,priority=100,prefix=,suffix=,format=long
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha,prefix={{date 'YYYYMMDD'}}-
+            type=raw,value=latest,enable={{is_default_branch}}
+          labels: |
+            org.opencontainers.image.title=embed
+            org.opencontainers.image.description=embed service for Progressia.one
+            org.opencontainers.image.vendor=Progressia.one
 
       - name: Build and push Docker image
         id: build-and-push
