@@ -1,0 +1,53 @@
+name: build-and-push-embedr-do
+on:
+  push:
+    branches:
+      - main
+      - echoprom_fix
+
+env:
+  IMAGE_NAME: embed
+
+jobs:
+  embedr-container-do:
+    if: github.repository == 'tigwyk/social.progressia.one'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Docker buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Log into DigitalOcean Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: registry.digitalocean.com
+          username: ${{ secrets.DO_REGISTRY_USER }}
+          password: ${{ secrets.DO_REGISTRY_SECRET }}
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            registry.digitalocean.com/progressiaone/embed.progressia.one
+          tags: |
+            type=sha,enable=true,priority=100,prefix=,suffix=,format=long
+
+      - name: Build and push Docker image
+        id: build-and-push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          file: ./Dockerfile.embedr
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
