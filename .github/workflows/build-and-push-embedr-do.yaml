@@ -1,4 +1,4 @@
-name: build-and-push-embedr-do
+name: Build and Push embedr to DigitalOcean Registry
 on:
   push:
     branches:
@@ -46,7 +46,7 @@ jobs:
             type=sha,prefix={{date 'YYYYMMDD'}}-
             type=raw,value=latest,enable={{is_default_branch}}
           labels: |
-            org.opencontainers.image.title=embed
+            org.opencontainers.image.title=embedr
             org.opencontainers.image.description=embed service for Progressia.one
             org.opencontainers.image.vendor=Progressia.one
 
