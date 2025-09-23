@@ -68,6 +68,9 @@ const mainStaticAssets = [
   'safari-pinned-tab.svg',
   'social-card-default-gradient.png',
   'social-card-default.png',
+  'favicon.png',
+  'favicon-16x16.png',
+  'favicon-32x32.png',
 ]
 
 const bskywebStaticDir = path.join(projectRoot, 'bskyweb', 'static')
