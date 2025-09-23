@@ -158,6 +158,8 @@ function PostContent({record}: {record: AppBskyFeedPost.Record | null}) {
           href={segment.link.uri}
           className="text-blue-500 hover:underline"
           disableTracking={
+            !segment.link.uri.startsWith('https://social.progressia.one') &&
+            !segment.link.uri.startsWith('https://go.progressia.one') &&
             !segment.link.uri.startsWith('https://bsky.app') &&
             !segment.link.uri.startsWith('https://go.bsky.app')
           }>

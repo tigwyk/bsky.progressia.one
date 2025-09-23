@@ -59,7 +59,10 @@ function LandingPage() {
           } else {
             try {
               const urlp = new URL(uri)
-              if (!urlp.hostname.endsWith('bsky.app')) {
+              if (
+                !urlp.hostname.endsWith('social.progressia.one') &&
+                !urlp.hostname.endsWith('bsky.app')
+              ) {
                 throw new Error('Invalid hostname')
               }
               const split = urlp.pathname.slice(1).split('/')

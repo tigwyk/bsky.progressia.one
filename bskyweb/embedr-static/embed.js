@@ -1,5 +1,5 @@
 'use strict'
-var EMBED_URL = 'https://embed.bsky.app'
+var EMBED_URL = 'https://embed.progressia.one'
 window.bluesky = window.bluesky || {
   scan: scan,
 }
