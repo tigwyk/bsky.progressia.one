@@ -1,0 +1,92 @@
+replicaCount: 1
+
+image:
+  repository: registry.digitalocean.com/progressiaone/go.progressia.one
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+  annotations: {}
+  name: "default"
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  hosts:
+    - host: go.progressia.one
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: go-progressia-one-tls
+      hosts:
+        - go.progressia.one
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+env:
+  - name: LINK_PORT
+    value: "3000"
+  - name: NODE_ENV
+    value: "production"
+  - name: UV_USE_IO_URING
+    value: "0"
+  - name: LINK_DB_POSTGRES_URL
+    value: "sqlite:///app/data/bskylink.db"
+  - name: LINK_HOSTNAMES
+    value: "go.progressia.one"
+  - name: LINK_APP_HOSTNAME
+    value: "social.progressia.one"
+  - name: LINK_SAFELINK_ENABLED
+    value: "false"
+  - name: LINK_SAFELINK_PDS_URL
+    value: "https://public.api.bsky.app"
+  - name: LINK_SAFELINK_AGENT_IDENTIFIER
+    value: "dummy"
+  - name: LINK_SAFELINK_AGENT_PASS
+    value: "dummy"
+
+persistence:
+  enabled: true
+  storageClass: ""
+  accessMode: ReadWriteOnce
+  size: 1Gi
+  mountPath: /app/data

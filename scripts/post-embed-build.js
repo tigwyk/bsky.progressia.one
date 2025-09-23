@@ -62,4 +62,27 @@ const embedPostHtmlDest = path.join(
 
 fs.copyFileSync(embedPostHtmlSource, embedPostHtmlDest)
 
+// copy additional static assets (favicons, logos) from main bskyweb static directory
+const mainStaticAssets = [
+  'apple-touch-icon.png',
+  'safari-pinned-tab.svg',
+  'social-card-default-gradient.png',
+  'social-card-default.png',
+]
+
+const bskywebStaticDir = path.join(projectRoot, 'bskyweb', 'static')
+const embedrStaticDir = path.join(projectRoot, 'bskyweb', 'embedr-static')
+
+mainStaticAssets.forEach(asset => {
+  const sourcePath = path.join(bskywebStaticDir, asset)
+  const destPath = path.join(embedrStaticDir, asset)
+
+  if (fs.existsSync(sourcePath)) {
+    fs.copyFileSync(sourcePath, destPath)
+    console.log(`Copied ${asset} to embedr-static`)
+  } else {
+    console.warn(`Warning: ${asset} not found in bskyweb/static`)
+  }
+})
+
 console.log(`Copied embed assets to embedr`)
