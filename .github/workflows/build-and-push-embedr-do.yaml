@@ -4,6 +4,16 @@ on:
     branches:
       - main
       - echoprom_fix
+    paths:
+        - 'Dockerfile'
+        - 'bskyembed/**'
+        - '.github/workflows/build-and-push-embedr-do.yaml'
+    pull_request:
+      branches:
+        - 'main'
+      paths:
+        - 'Dockerfile'
+        - 'bskyembed/**'
 
 env:
   IMAGE_NAME: embed
