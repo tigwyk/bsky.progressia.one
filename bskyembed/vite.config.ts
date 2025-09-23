@@ -1,5 +1,6 @@
 import {resolve} from 'node:path'
 
+// Updated to include additional favicon static assets
 import preact from '@preact/preset-vite'
 import legacy from '@vitejs/plugin-legacy'
 import type {UserConfig} from 'vite'
